@@ -116,7 +116,10 @@ function setEmployees(d){localStorage.setItem(LS_EMP,JSON.stringify(d))}
 function getUsers(){return JSON.parse(localStorage.getItem(LS_USERS)||"{}")}
 function setUsers(d){localStorage.setItem(LS_USERS,JSON.stringify(d))}
 function getOT(){return JSON.parse(localStorage.getItem(LS_OT)||'{"restDays":[6,13,20,27],"selectedRestDays":[],"data":{},"planned":{}}')}
-function setOT(d){localStorage.setItem(LS_OT,JSON.stringify(d))}
+function setOT(d){
+  localStorage.setItem(LS_OT,JSON.stringify(d));
+  queueCloudOTSync(d);
+}
 
 // Lưu riêng dữ liệu tăng ca theo từng tháng để có thể xem lại tháng trước.
 const LS_OT_MONTHS = "cv_overtime_months_v1";
