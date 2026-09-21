@@ -23,7 +23,6 @@ function cloudConfigured(){
 function cloudHeaders(){
   return {
     "apikey": CV_CLOUD.publishableKey,
-    "Authorization": "Bearer " + CV_CLOUD.publishableKey,
     "Content-Type": "application/json"
   };
 }
@@ -61,7 +60,10 @@ function setCloudStatus(ok,msg){
   el.textContent=ok ? "☁ Đã kết nối" : "☁ Chưa kết nối";
   el.style.background=ok ? "#dcfce7" : "#fee2e2";
   el.style.color=ok ? "#166534" : "#b91c1c";
-  if(msg) el.title=msg;
+  if(msg){
+    el.title=msg;
+    el.dataset.error=msg;
+  }
 }
 
 function initCloud(){
