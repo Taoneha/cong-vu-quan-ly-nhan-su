@@ -12,76 +12,162 @@ const CV_CLOUD = window.CV_SUPABASE_CONFIG || {};
 let cvSupabase = null;
 let cvCloudHydrating = false;
 let cvCloudTimer = null;
+let cvCloudPollTimer = null;
 let cvCloudChannel = null;
+let cvCloudLastStamp = "";
 
 function cloudConfigured(){
-  return !!(CV_CLOUD.url && CV_CLOUD.publishableKey && window.supabase?.createClient);
+  return !!(CV_CLOUD.url && CV_CLOUD.publishableKey);
+}
+
+function cloudHeaders(){
+  return {
+    "apikey": CV_CLOUD.publishableKey,
+    "Authorization": "Bearer " + CV_CLOUD.publishableKey,
+    "Content-Type": "application/json"
+  };
+}
+
+async function cloudRestGet(key){
+  const url = CV_CLOUD.url + "/rest/v1/cv_overtime_months?select=month_key,payload,updated_at&month_key=eq." + encodeURIComponent(key);
+  const res = await fetch(url,{headers:cloudHeaders(),cache:"no-store"});
+  const text = await res.text();
+  if(!res.ok) throw new Error("HTTP "+res.status+" "+text.slice(0,300));
+  const rows = text ? JSON.parse(text) : [];
+  return rows[0] || null;
+}
+
+async function cloudRestUpsert(key,payload){
+  const url = CV_CLOUD.url + "/rest/v1/cv_overtime_months?on_conflict=month_key";
+  const res = await fetch(url,{
+    method:"POST",
+    headers:{...cloudHeaders(),"Prefer":"resolution=merge-duplicates,return=minimal"},
+    body:JSON.stringify({month_key:key,payload,updated_at:new Date().toISOString()})
+  });
+  const text = await res.text();
+  if(!res.ok) throw new Error("HTTP "+res.status+" "+text.slice(0,300));
+  return true;
+}
+
+function setCloudStatus(ok,msg){
+  let el=document.getElementById("cvCloudStatus");
+  if(!el){
+    el=document.createElement("span");
+    el.id="cvCloudStatus";
+    el.style.cssText="display:inline-flex;align-items:center;margin-left:8px;padding:5px 9px;border-radius:999px;font-size:11px;font-weight:700;background:#f3f4f6;color:#6b7280";
+    const top=document.querySelector(".top-actions");
+    if(top) top.prepend(el);
+  }
+  el.textContent=ok ? "☁ Đã kết nối" : "☁ Chưa kết nối";
+  el.style.background=ok ? "#dcfce7" : "#fee2e2";
+  el.style.color=ok ? "#166534" : "#b91c1c";
+  if(msg) el.title=msg;
 }
 
 function initCloud(){
-  if(!cloudConfigured()) return false;
+  if(!cloudConfigured()){
+    setCloudStatus(false,"Chưa có cấu hình Supabase");
+    return false;
+  }
   try{
-    cvSupabase = window.supabase.createClient(CV_CLOUD.url, CV_CLOUD.publishableKey, {
-      auth: { persistSession:false, autoRefreshToken:false, detectSessionInUrl:false }
-    });
-    if(!cvCloudChannel){
-      cvCloudChannel = cvSupabase.channel("cv-overtime-live")
-        .on("postgres_changes", {event:"*", schema:"public", table:"cv_overtime_months"}, payload=>{
-          const row=payload.new || {};
+    if(window.supabase?.createClient && !cvSupabase){
+      cvSupabase = window.supabase.createClient(CV_CLOUD.url, CV_CLOUD.publishableKey, {
+        auth:{persistSession:false,autoRefreshToken:false,detectSessionInUrl:false}
+      });
+    }
+    if(cvSupabase && !cvCloudChannel){
+      cvCloudChannel=cvSupabase.channel("cv-overtime-live")
+        .on("postgres_changes",{event:"*",schema:"public",table:"cv_overtime_months"},payload=>{
+          const row=payload.new||{};
           const key=row.month_key;
-          if(!key || cvCloudHydrating || key!==getActiveOTMonth()) return;
-          if(row.payload){
-            localStorage.setItem(LS_OT, JSON.stringify(row.payload));
-            const months=getOTMonths(); months[key]=row.payload; setOTMonths(months);
-            if(document.getElementById("appScreen") && !document.getElementById("appScreen").classList.contains("hidden")){
-              try{ renderOvertime(); }catch(e){}
-            }
-          }
+          if(!key || cvCloudHydrating || key!==getActiveOTMonth() || !row.payload) return;
+          const stamp=String(row.updated_at||"");
+          if(stamp && stamp===cvCloudLastStamp) return;
+          cvCloudLastStamp=stamp;
+          applyCloudPayload(key,row.payload,true);
         }).subscribe();
     }
+    setCloudStatus(true,"Supabase đã khởi tạo");
     return true;
   }catch(e){
     console.warn("Supabase init failed",e);
     cvSupabase=null;
-    return false;
+    setCloudStatus(true,"Đang dùng REST API trực tiếp");
+    return true;
+  }
+}
+
+function applyCloudPayload(key,payload,rerender=true){
+  localStorage.setItem(LS_OT,JSON.stringify(payload));
+  const months=getOTMonths(); months[key]=payload; setOTMonths(months);
+  if(rerender){
+    try{ if(typeof renderOvertime==="function") renderOvertime(); }catch(e){}
   }
 }
 
 function queueCloudOTSync(d){
-  if(!cvSupabase || cvCloudHydrating) return;
+  if(!cloudConfigured() || cvCloudHydrating) return;
   clearTimeout(cvCloudTimer);
   const key=getActiveOTMonth();
   const payload=JSON.parse(JSON.stringify(d));
   cvCloudTimer=setTimeout(async()=>{
     try{
-      const {error}=await cvSupabase.from("cv_overtime_months").upsert({month_key:key,payload,updated_at:new Date().toISOString()},{onConflict:"month_key"});
-      if(error) console.warn("Không đồng bộ tăng ca lên cloud:",error.message);
-    }catch(e){ console.warn("Cloud sync error",e); }
-  },250);
+      await cloudRestUpsert(key,payload);
+      setCloudStatus(true,"Đã lưu "+key+" lên Supabase");
+      cvCloudLastStamp="";
+    }catch(e){
+      console.warn("Không đồng bộ tăng ca lên cloud:",e);
+      setCloudStatus(false,e.message||"Lỗi đồng bộ");
+    }
+  },350);
 }
 
-async function hydrateMonthFromCloud(key, rerender=true){
-  if(!cvSupabase) return false;
+async function hydrateMonthFromCloud(key,rerender=true){
+  if(!cloudConfigured()) return false;
   try{
     cvCloudHydrating=true;
-    const {data,error}=await cvSupabase.from("cv_overtime_months").select("payload").eq("month_key",key).maybeSingle();
-    if(error) throw error;
-    if(data?.payload){
-      localStorage.setItem(LS_OT,JSON.stringify(data.payload));
-      const months=getOTMonths(); months[key]=data.payload; setOTMonths(months);
-      if(rerender) renderOvertime();
+    const row=await cloudRestGet(key);
+    if(row?.payload){
+      cvCloudLastStamp=String(row.updated_at||"");
+      applyCloudPayload(key,row.payload,rerender);
+      setCloudStatus(true,"Đã tải dữ liệu "+key+" từ Supabase");
       return true;
     }
+    setCloudStatus(true,"Chưa có dữ liệu online cho "+key);
     return false;
   }catch(e){
-    console.warn("Không tải được dữ liệu tăng ca online:",e.message);
+    console.warn("Không tải được dữ liệu tăng ca online:",e);
+    setCloudStatus(false,e.message||"Không kết nối được Supabase");
     return false;
-  }finally{ cvCloudHydrating=false; }
+  }finally{
+    cvCloudHydrating=false;
+  }
+}
+
+async function pollCloudOT(){
+  if(!cloudConfigured() || cvCloudHydrating) return;
+  const key=getActiveOTMonth();
+  try{
+    const row=await cloudRestGet(key);
+    if(row?.payload){
+      const stamp=String(row.updated_at||"");
+      if(stamp && stamp!==cvCloudLastStamp){
+        cvCloudLastStamp=stamp;
+        applyCloudPayload(key,row.payload,true);
+      }
+      setCloudStatus(true,"Đồng bộ tự động đang hoạt động");
+    }
+  }catch(e){
+    console.warn("Cloud polling:",e);
+    setCloudStatus(false,e.message||"Lỗi kết nối");
+  }
 }
 
 async function hydrateCloud(){
   if(!initCloud()) return;
-  await hydrateMonthFromCloud(getActiveOTMonth(), true);
+  await hydrateMonthFromCloud(getActiveOTMonth(),true);
+  clearInterval(cvCloudPollTimer);
+  cvCloudPollTimer=setInterval(pollCloudOT,3000);
 }
 
 const defaultAvatar =
