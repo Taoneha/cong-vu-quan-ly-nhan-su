@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Công Vụ - Quản lý nhân sự</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- LOGIN -->
+  <section id="loginScreen" class="auth-screen">
+    <div class="login-card">
+      <div class="login-logo">CV</div>
+      <h1>Đăng nhập hệ thống</h1>
+      <p class="login-note">
+        Lần đầu sử dụng: tài khoản là <b>mã số thẻ</b>, mật khẩu mặc định là <b>123</b>.
+      </p>
+
+      <form id="loginForm">
+        <label>Mã số thẻ / Mã nhân viên</label>
+        <input id="loginCard" placeholder="VD: V3405840" required />
+
+        <label>Mật khẩu</label>
+        <input id="loginPassword" type="password" placeholder="Nhập mật khẩu" required />
+
+        <div class="login-row">
+          <label class="check-line">
+            <input id="rememberPassword" type="checkbox"/>
+            <span>Lưu mật khẩu trên máy này</span>
+          </label>
+          <a href="#" id="forgotLink">Quên mật khẩu?</a>
+        </div>
+
+        <button class="primary full" type="submit">Đăng nhập</button>
+        <p id="loginMsg" class="msg"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FIRST PROFILE UPDATE -->
+  <section id="profileScreen" class="auth-screen hidden">
+    <div class="profile-card">
+      <div class="profile-head">
+        <div class="login-logo small">CV</div>
+        <div>
+          <h1>Cập nhật thông tin bắt buộc lần đầu</h1>
+          <p>Vui lòng hoàn tất thông tin cá nhân trước khi vào hệ thống.</p>
+        </div>
+      </div>
+
+      <form id="profileForm" class="grid-form">
+        <div>
+          <label>Mã số thẻ <b>*</b></label>
+          <input id="pfCard" readonly required />
+        </div>
+
+        <div>
+          <label>Họ và tên <b>*</b></label>
+          <input id="pfName" readonly required />
+        </div>
+
+        <div>
+          <label>Ngày tháng năm sinh <b>*</b></label>
+          <input id="pfDob" type="date" required />
+        </div>
+
+        <div>
+          <label>Số điện thoại <b>*</b></label>
+          <input id="pfPhone" required />
+        </div>
+
+        <div>
+          <label>CCCD <b>*</b></label>
+          <input id="pfCccd" required />
+        </div>
+
+        <div>
+          <label>Ảnh đại diện <b>*</b></label>
+          <input id="pfAvatar" type="file" accept="image/*" required />
+        </div>
+
+        <div>
+          <label>Mật khẩu mới <b>*</b></label>
+          <input id="pfNewPassword" type="password" placeholder="Không được dùng 123" required />
+        </div>
+
+        <div>
+          <label>Nhập lại mật khẩu mới <b>*</b></label>
+          <input id="pfConfirmPassword" type="password" required />
+        </div>
+
+        <div class="form-actions">
+          <button class="primary" type="submit">Lưu và vào hệ thống</button>
+        </div>
+
+        <p id="profileMsg" class="msg"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- APP -->
+  <main id="appScreen" class="app hidden">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">CV</div>
+        <div>
+          <h2>Công Vụ</h2>
+          <p>Quản lý nhân sự</p>
+        </div>
+      </div>
+
+      <nav>
+        <button data-page="home" class="nav-item active">🏠 Trang chủ</button>
+        <button data-page="overtime" class="nav-item">⏱ Theo dõi tăng ca</button>
+        <button data-page="status" class="nav-item">📌 Trạng thái làm việc</button>
+        <button data-page="shift" class="nav-item">🕘 Ca làm việc</button>
+        <button data-page="org" class="nav-item">🏢 Cơ cấu tổ chức</button>
+        <button data-page="area" class="nav-item">📍 Khu vực làm việc</button>
+        <button data-page="equipment" class="nav-item">🧰 Quản lý thiết bị</button>
+      </nav>
+    </aside>
+
+    <section class="content">
+      <header class="topbar">
+        <div>
+          <h1 id="pageTitle">Quản lý công vụ</h1>
+          <p>Bạn đang đăng nhập bằng quyền <b>chỉnh sửa</b>.</p>
+        </div>
+
+        <div class="top-actions">
+          <button id="exportBtn" class="soft">Xuất nhân viên</button>
+          <label class="green file-label">
+            Nhập dữ liệu từ Excel
+            <input id="importFile" type="file" accept=".csv,.txt,.json" hidden />
+          </label>
+          <button id="backupBtn" class="soft">Sao lưu dữ liệu</button>
+
+          <div class="account" id="accountBox">
+            <img id="accountAvatar" alt="avatar" onclick="toggleAccountMenu()"/>
+            <div class="account-summary" onclick="toggleAccountMenu()">
+              <b id="accountName"></b>
+              <span id="accountRole"></span>
+            </div>
+            <div id="accountMenu" class="account-menu" hidden>
+              <button type="button" onclick="openPersonalInfo()">👤 Thông tin cá nhân</button>
+              <div class="account-language-item">
+                <div class="account-menu-label">🌐 Ngôn ngữ</div>
+                <div class="language-switcher account-language-switcher">
+                  <span>🌐</span>
+                  <select id="languageSelect" aria-label="Ngôn ngữ">
+                    <option value="vi">Tiếng Việt</option>
+                    <option value="zh">中文</option>
+                  </select>
+                </div>
+              </div>
+              <button type="button" onclick="openHelp()">❓ Trợ giúp</button>
+              <button type="button" class="account-menu-logout" onclick="logout()">↪ Đăng xuất</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section id="pageContent"></section>
+    </section>
+  </main>
+
+  <!-- MODAL -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-box">
+      <div class="modal-head">
+        <h2 id="modalTitle">Modal</h2>
+        <button id="modalClose">×</button>
+      </div>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
