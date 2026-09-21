@@ -7,6 +7,83 @@ const LS_EQUIPMENTS = "cv_equipments_v1";
 const LS_MATERIALS = "cv_materials_v1";
 const LS_REPAIRS = "cv_repairs_v1";
 
+/* SHARED ONLINE OVERTIME DATA (Supabase) */
+const CV_CLOUD = window.CV_SUPABASE_CONFIG || {};
+let cvSupabase = null;
+let cvCloudHydrating = false;
+let cvCloudTimer = null;
+let cvCloudChannel = null;
+
+function cloudConfigured(){
+  return !!(CV_CLOUD.url && CV_CLOUD.publishableKey && window.supabase?.createClient);
+}
+
+function initCloud(){
+  if(!cloudConfigured()) return false;
+  try{
+    cvSupabase = window.supabase.createClient(CV_CLOUD.url, CV_CLOUD.publishableKey, {
+      auth: { persistSession:false, autoRefreshToken:false, detectSessionInUrl:false }
+    });
+    if(!cvCloudChannel){
+      cvCloudChannel = cvSupabase.channel("cv-overtime-live")
+        .on("postgres_changes", {event:"*", schema:"public", table:"cv_overtime_months"}, payload=>{
+          const row=payload.new || {};
+          const key=row.month_key;
+          if(!key || cvCloudHydrating || key!==getActiveOTMonth()) return;
+          if(row.payload){
+            localStorage.setItem(LS_OT, JSON.stringify(row.payload));
+            const months=getOTMonths(); months[key]=row.payload; setOTMonths(months);
+            if(document.getElementById("appScreen") && !document.getElementById("appScreen").classList.contains("hidden")){
+              try{ renderOvertime(); }catch(e){}
+            }
+          }
+        }).subscribe();
+    }
+    return true;
+  }catch(e){
+    console.warn("Supabase init failed",e);
+    cvSupabase=null;
+    return false;
+  }
+}
+
+function queueCloudOTSync(d){
+  if(!cvSupabase || cvCloudHydrating) return;
+  clearTimeout(cvCloudTimer);
+  const key=getActiveOTMonth();
+  const payload=JSON.parse(JSON.stringify(d));
+  cvCloudTimer=setTimeout(async()=>{
+    try{
+      const {error}=await cvSupabase.from("cv_overtime_months").upsert({month_key:key,payload,updated_at:new Date().toISOString()},{onConflict:"month_key"});
+      if(error) console.warn("Không đồng bộ tăng ca lên cloud:",error.message);
+    }catch(e){ console.warn("Cloud sync error",e); }
+  },250);
+}
+
+async function hydrateMonthFromCloud(key, rerender=true){
+  if(!cvSupabase) return false;
+  try{
+    cvCloudHydrating=true;
+    const {data,error}=await cvSupabase.from("cv_overtime_months").select("payload").eq("month_key",key).maybeSingle();
+    if(error) throw error;
+    if(data?.payload){
+      localStorage.setItem(LS_OT,JSON.stringify(data.payload));
+      const months=getOTMonths(); months[key]=data.payload; setOTMonths(months);
+      if(rerender) renderOvertime();
+      return true;
+    }
+    return false;
+  }catch(e){
+    console.warn("Không tải được dữ liệu tăng ca online:",e.message);
+    return false;
+  }finally{ cvCloudHydrating=false; }
+}
+
+async function hydrateCloud(){
+  if(!initCloud()) return;
+  await hydrateMonthFromCloud(getActiveOTMonth(), true);
+}
+
 const defaultAvatar =
   "data:image/svg+xml;base64," +
   btoa(`<svg xmlns="http://www.w3.org/2000/svg" width="90" height="90">
@@ -144,6 +221,7 @@ function switchOTMonth(key){
   if(current!==key) saveActiveOTMonth(current);
   loadOTMonth(key);
   renderOvertime();
+  hydrateMonthFromCloud(key, true);
 }
 function previousOTMonth(){
   const key=getActiveOTMonth();
@@ -3218,6 +3296,9 @@ seed();
 initLogin();
 initProfile();
 initLanguage();
+
+// Kết nối và đồng bộ bảng tăng ca dùng chung nếu đã cấu hình Supabase.
+setTimeout(()=>hydrateCloud(), 50);
 
 if(currentUser()){
   const users=getUsers();
