@@ -1,0 +1,3996 @@
+:root{
+  --blue:#2563eb;
+  --cyan:#0ea5e9;
+  --dark:#111827;
+  --bg:#eef4fb;
+  --card:#fff;
+  --line:#d8e4f2;
+  --muted:#64748b;
+  --green:#16a34a;
+  --red:#ef4444;
+  --orange:#f97316;
+  --yellow:#f59e0b;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:#0f172a;
+}
+
+.hidden{display:none!important}
+
+button,input,select,textarea{
+  font-family:inherit;
+}
+
+button{
+  border:0;
+  border-radius:9px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+input,select,textarea{
+  width:100%;
+  padding:11px 12px;
+  border:1px solid #cbd5e1;
+  border-radius:9px;
+  outline:none;
+  background:white;
+}
+
+textarea{
+  min-height:80px;
+  resize:vertical;
+}
+
+input:focus,select:focus,textarea:focus{
+  border-color:var(--blue);
+  box-shadow:0 0 0 3px rgba(37,99,235,.12);
+}
+
+label{
+  display:block;
+  margin-bottom:7px;
+  font-size:14px;
+  font-weight:800;
+}
+
+label b{color:var(--red)}
+
+.primary{
+  background:var(--blue);
+  color:white;
+  padding:11px 16px;
+}
+
+.full{width:100%}
+
+.soft{
+  background:#dbeafe;
+  color:#075be8;
+  padding:11px 16px;
+}
+
+.green{
+  background:var(--green);
+  color:white;
+  padding:11px 16px;
+  border-radius:9px;
+  font-weight:800;
+}
+
+.danger{
+  background:var(--red);
+  color:white;
+  padding:10px 14px;
+}
+
+.danger-light{
+  background:#fee2e2;
+  color:#dc2626;
+  padding:10px 12px;
+}
+
+.gray{
+  background:#e5e7eb;
+  color:#374151;
+  padding:11px 16px;
+}
+
+.orange-btn{
+  background:var(--orange);
+  color:white;
+  padding:11px 16px;
+}
+
+.yellow-btn{
+  background:var(--yellow);
+  color:white;
+  padding:10px 13px;
+}
+
+.repair-btn{
+  background:var(--cyan);
+  color:white;
+  padding:10px 13px;
+}
+
+.msg{
+  color:#dc2626;
+  font-weight:800;
+}
+
+/* AUTH */
+.auth-screen{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:25px;
+  background:linear-gradient(135deg,#e0f2fe,#eef4fb);
+}
+
+.login-card,.profile-card{
+  background:white;
+  border:1px solid #d7e5f6;
+  border-radius:22px;
+  box-shadow:0 20px 55px rgba(15,23,42,.12);
+}
+
+.login-card{
+  width:430px;
+  padding:34px;
+}
+
+.login-logo{
+  width:54px;
+  height:54px;
+  border-radius:14px;
+  background:linear-gradient(135deg,var(--cyan),var(--blue));
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:24px;
+  font-weight:900;
+  margin-bottom:14px;
+}
+
+.login-logo.small{
+  width:44px;
+  height:44px;
+  font-size:19px;
+  margin:0;
+}
+
+.login-note{
+  color:#475569;
+  line-height:1.55;
+}
+
+.login-card form{
+  display:grid;
+  gap:12px;
+}
+
+.login-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.check-line{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin:0;
+  font-weight:500;
+}
+
+.check-line input{
+  width:auto;
+}
+
+.login-row a{
+  color:var(--blue);
+  font-weight:800;
+  text-decoration:none;
+}
+
+.profile-card{
+  width:min(920px,96vw);
+  padding:28px;
+}
+
+.profile-head{
+  display:flex;
+  gap:14px;
+  align-items:center;
+  border-bottom:1px solid var(--line);
+  padding-bottom:18px;
+  margin-bottom:20px;
+}
+
+.grid-form{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+}
+
+.form-actions{
+  grid-column:1/3;
+  display:flex;
+  justify-content:flex-end;
+}
+
+/* APP LAYOUT */
+.app{
+  min-height:100vh;
+  display:flex;
+}
+
+.sidebar{
+  width:255px;
+  background:var(--dark);
+  color:white;
+  padding:18px 14px;
+  flex-shrink:0;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:25px;
+}
+
+.brand-icon{
+  width:42px;
+  height:42px;
+  border-radius:10px;
+  background:#1d9bf0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  font-weight:900;
+}
+
+.brand h2{
+  margin:0;
+  font-size:20px;
+}
+
+.brand p{
+  margin:3px 0 0;
+  font-size:12px;
+}
+
+.nav-item{
+  width:100%;
+  display:block;
+  color:white;
+  background:transparent;
+  text-align:left;
+  padding:14px 16px;
+  margin:7px 0;
+  border-radius:8px;
+  font-size:15px;
+}
+
+.nav-item.active{
+  background:#334155;
+  border-left:5px solid #06b6d4;
+}
+
+.content{
+  flex:1;
+  padding:20px 22px 28px;
+  overflow:auto;
+}
+
+.topbar{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:12px 14px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  margin-bottom:14px;
+}
+
+.topbar h1{
+  margin:0 0 4px;
+  font-size:1.55rem;
+}
+
+.topbar p{
+  margin:0;
+  color:#475569;
+}
+
+.top-actions{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+.file-label{
+  display:inline-flex;
+  align-items:center;
+  margin:0;
+  cursor:pointer;
+}
+
+.account{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.account img{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid #cbd5e1;
+}
+
+.account span{
+  display:block;
+  font-size:12px;
+  color:#334155;
+}
+
+/* COMMON */
+.stats{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:16px;
+  margin-bottom:20px;
+}
+
+.stat-card{
+  background:white;
+  border:1px solid var(--line);
+  border-left:4px solid var(--blue);
+  border-radius:14px;
+  padding:18px;
+  box-shadow:0 10px 28px rgba(15,23,42,.05);
+}
+
+.stat-card.green-left{border-left-color:#10b981}
+.stat-card.orange-left{border-left-color:#f59e0b}
+.stat-card.red-left{border-left-color:#ef4444}
+
+.stat-card p{
+  margin:0 0 13px;
+  color:#53657f;
+}
+
+.stat-card b{
+  font-size:27px;
+}
+
+.panel{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:14px;
+  overflow:hidden;
+  margin-bottom:20px;
+}
+
+.panel-head{
+  padding:18px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:14px;
+  border-bottom:1px solid var(--line);
+}
+
+.panel-head h2{
+  margin:0 0 6px;
+}
+
+.panel-head p{
+  margin:0;
+  color:#64748b;
+}
+
+.tools,.filters{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.search{
+  min-width:300px;
+}
+
+.table-wrap{
+  width:100%;
+  max-height:65vh;
+  overflow:auto;
+  position:relative;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+th,td{
+  padding:13px 15px;
+  border-bottom:1px solid #e2e8f0;
+  text-align:left;
+  font-size:14px;
+  vertical-align:middle;
+}
+
+th{
+  background:#f8fafc;
+  color:#1e293b;
+  font-size:12px;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+
+.employee-photo{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid #bfdbfe;
+}
+
+.badge{
+  display:inline-block;
+  padding:7px 11px;
+  border-radius:999px;
+  font-weight:900;
+  font-size:12px;
+  white-space:nowrap;
+}
+
+.badge.blue{background:#dbeafe;color:#0061ff}
+.badge.green{background:#dcfce7;color:#15803d}
+.badge.yellow{background:#fef3c7;color:#b45309}
+.badge.red{background:#fee2e2;color:#dc2626}
+
+.icon-btn{
+  width:34px;
+  height:34px;
+  color:white;
+  margin:2px;
+}
+
+.edit-btn{background:#f59e0b}
+.delete-btn{background:#ef4444}
+
+/* OVERTIME */
+.legend{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  margin:14px 0;
+}
+
+.legend-item{
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:12px;
+  background:white;
+}
+
+.sample{
+  display:inline-block;
+  padding:5px 8px;
+  border-radius:7px;
+  font-weight:900;
+  margin-right:6px;
+  border:1px solid #cbd5e1;
+}
+
+.sample.white{background:white}
+.sample.yellow{background:#fef08a}
+.sample.orange{background:#fdba74}
+.sample.red{background:#ef4444;color:white}
+
+.ot-table th,.ot-table td{
+  text-align:center;
+  min-width:42px;
+  padding:8px;
+}
+
+/* Ghim cố định dòng NHÂN VIÊN + ngày/thứ khi cuộn bảng tăng ca */
+.ot-table thead{
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+
+.ot-table thead th{
+  position:sticky;
+  top:0;
+  background:#fff;
+  z-index:10;
+  box-shadow:0 1px 0 #cbd5e1;
+}
+
+/* Khi cuộn chuột trong bảng, chỉ các dòng nhân viên cuộn;
+   dòng tiêu đề NHÂN VIÊN/ngày/thứ luôn nằm trên cùng. */
+.ot-table tbody td{
+  background:#fff;
+}
+
+.ot-table .name-col{
+  min-width:190px;
+  text-align:left;
+  position:sticky;
+  left:0;
+  background:white;
+  z-index:6;
+}
+
+/* Ô góc trên cùng phải luôn nằm trên cả hàng tiêu đề và cột tên */
+.ot-table thead .name-col{
+  top:0;
+  left:0;
+  z-index:8;
+}
+
+.ot-cell{
+  width:38px;
+  height:30px;
+  border:1px solid #cbd5e1;
+  border-radius:6px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  font-weight:900;
+  text-align:center;
+  padding:0;
+  font-size:14px;
+  font-family:inherit;
+  background:#fff;
+}
+
+.ot-cell:focus{
+  outline:2px solid #2563eb;
+  outline-offset:-2px;
+}
+
+/* Ngày nghỉ thủ công không tô đỏ; chỉ Chủ nhật được tô đỏ. */
+.rest-day{
+  background:inherit!important;
+}
+
+/* Ngày được chọn bằng "Chọn ngày nghỉ": tô đỏ nổi bật cả cột. */
+.ot-table th.selected-rest-day,
+.ot-table td.selected-rest-day{
+  background:#fecaca!important;
+}
+
+.ot-table th.selected-rest-day{
+  color:#b91c1c;
+}
+
+.ot-table td.selected-rest-day .ot-cell{
+  background:#fee2e2;
+}
+
+/* Tô đỏ nhạt toàn bộ cột Chủ nhật trong bảng tăng ca */
+.sunday-col{
+  background:#fee2e2!important;
+}
+
+.ot-table td.sunday-col .ot-cell{
+  background:#fff1f2;
+}
+
+.ot-table th.sunday-col{
+  color:#dc2626;
+  font-weight:900;
+}
+
+.val-S,.val-S2,.val-S15,.val-C,.val-N{font-weight:900}
+.val-S,.val-S2,.val-S15{background:#fef08a!important}
+.val-C{background:#fdba74!important}
+.val-N{background:#ef4444!important;color:white!important}
+
+/* STATUS / AREA */
+.status-grid,.two-col,.area-grid{
+  display:grid;
+  grid-template-columns:330px 1fr;
+  gap:18px;
+}
+
+.two-col{grid-template-columns:360px 1fr}
+.area-grid{grid-template-columns:1fr 360px}
+
+.member-card{
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:14px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:12px;
+}
+
+.member-card img{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+.member-card h3{
+  margin:0 0 5px;
+}
+
+.member-card p{
+  margin:0;
+  color:#64748b;
+  font-size:13px;
+}
+
+.progress{
+  height:8px;
+  background:#e2e8f0;
+  border-radius:999px;
+  overflow:hidden;
+  margin-top:8px;
+}
+
+.progress span{
+  display:block;
+  height:100%;
+  background:var(--blue);
+}
+
+.chart-box{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:18px;
+  margin-bottom:18px;
+}
+
+.gauge{
+  width:170px;
+  height:170px;
+  border-radius:50%;
+  margin:auto;
+  background:conic-gradient(var(--blue) 0 82%, #e2e8f0 82% 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.gauge span{
+  width:118px;
+  height:118px;
+  background:white;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  font-weight:900;
+}
+
+.note{
+  background:#f8fafc;
+  border:1px dashed #94a3b8;
+  border-radius:12px;
+  padding:14px;
+  color:#475569;
+  line-height:1.55;
+}
+
+.bar-row{
+  display:grid;
+  grid-template-columns:100px 1fr 70px;
+  gap:10px;
+  align-items:center;
+  margin:18px 0;
+}
+
+.bar{
+  height:22px;
+  background:#e2e8f0;
+  border-radius:999px;
+  overflow:hidden;
+}
+
+.bar span{
+  display:block;
+  height:100%;
+  background:linear-gradient(90deg,#0ea5e9,#2563eb);
+}
+
+.donut{
+  width:230px;
+  height:230px;
+  border-radius:50%;
+  margin:20px auto;
+  background:conic-gradient(#2563eb 0 25%, #16a34a 25% 55%, #f59e0b 55% 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.donut span{
+  width:135px;
+  height:135px;
+  border-radius:50%;
+  background:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:24px;
+  font-weight:900;
+}
+
+/* EQUIPMENT */
+.equip-tabs{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:18px;
+}
+
+.equip-tab{
+  padding:12px 18px;
+  background:white;
+  color:#334155;
+  border:1px solid var(--line);
+  border-radius:999px;
+}
+
+.equip-tab.active{
+  background:var(--orange);
+  color:white;
+  border-color:var(--orange);
+}
+
+.equip-toolbar{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:16px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:center;
+  margin-bottom:18px;
+}
+
+.equip-toolbar input,
+.equip-toolbar select{
+  width:auto;
+  min-width:160px;
+}
+
+.sort-btn{
+  background:#f1f5f9;
+  color:#334155;
+  padding:10px 14px;
+}
+
+.sort-btn.active{
+  background:var(--orange);
+  color:white;
+}
+
+.equip-cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(310px,1fr));
+  gap:18px;
+}
+
+.equip-card{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:18px;
+  box-shadow:0 10px 28px rgba(15,23,42,.06);
+}
+
+.equip-img{
+  width:100%;
+  height:180px;
+  object-fit:contain;
+  background:#f8fafc;
+  border:1px solid #e2e8f0;
+  border-radius:14px;
+  padding:12px;
+  margin-bottom:12px;
+}
+
+.equip-low{
+  display:inline-block;
+  background:#fee2e2;
+  color:#dc2626;
+  padding:8px 12px;
+  border-radius:999px;
+  font-weight:900;
+  margin-bottom:10px;
+}
+
+.equip-ok{
+  display:inline-block;
+  background:#dcfce7;
+  color:#15803d;
+  padding:7px 11px;
+  border-radius:999px;
+  font-weight:900;
+}
+
+.equip-title{
+  font-size:22px;
+  font-weight:900;
+  margin:6px 0;
+}
+
+.equip-warning{
+  color:#dc2626;
+  font-weight:800;
+  background:#fff1f2;
+  border:1px solid #fecdd3;
+  padding:10px;
+  border-radius:10px;
+  margin:10px 0;
+}
+
+.equip-info{
+  display:grid;
+  gap:8px;
+  margin:12px 0;
+}
+
+.equip-info div{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  border-bottom:1px dashed #e2e8f0;
+  padding-bottom:7px;
+}
+
+.qty-control{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin:12px 0;
+  flex-wrap:wrap;
+}
+
+.qty-control button{
+  min-width:38px;
+  height:38px;
+  font-size:16px;
+}
+
+.qty-number{
+  min-width:54px;
+  height:38px;
+  border-radius:10px;
+  background:#eff6ff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#1d4ed8;
+  font-weight:900;
+  font-size:20px;
+}
+
+.equip-actions{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
+
+.equip-form{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+
+.equip-form .span-2{grid-column:span 2}
+.equip-form .span-4{grid-column:span 4}
+
+.equip-form-actions{
+  grid-column:span 4;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+.equip-thumb{
+  width:60px;
+  height:60px;
+  object-fit:contain;
+  background:#f8fafc;
+  border:1px solid #e2e8f0;
+  border-radius:10px;
+  padding:5px;
+}
+
+
+/* REPAIR FORM LAYOUT */
+.repair-form{
+  grid-template-columns:repeat(10,minmax(0,1fr));
+}
+.repair-form .repair-field{
+  grid-column:span 2;
+  min-width:0;
+}
+.repair-form .repair-textarea{
+  grid-column:span 5;
+  min-width:0;
+}
+.repair-form .equip-form-actions{
+  grid-column:span 10;
+}
+@media(max-width:1100px){
+  .repair-form{grid-template-columns:repeat(5,minmax(0,1fr));}
+  .repair-form .repair-field{grid-column:span 1;}
+  .repair-form .repair-textarea{grid-column:span 2.5;}
+  .repair-form .equip-form-actions{grid-column:span 5;}
+}
+@media(max-width:760px){
+  .repair-form{grid-template-columns:1fr;}
+  .repair-form .repair-field,.repair-form .repair-textarea,.repair-form .equip-form-actions{grid-column:span 1;}
+}
+
+/* MULTI EMPLOYEE LEAVE */
+.ot-employee-select{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin:0;
+  text-align:left;
+  cursor:pointer;
+}
+.ot-employee-select input{width:auto;margin:0;}
+.multi-leave-box{display:grid;gap:14px;}
+.multi-leave-top{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.multi-leave-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.multi-leave-actions span{font-weight:800;color:#2563eb;margin-left:auto;}
+.multi-leave-list{max-height:420px;overflow:auto;border:1px solid var(--line);border-radius:12px;padding:8px;}
+.multi-leave-item{display:flex;align-items:center;gap:10px;margin:0;padding:11px 10px;border-bottom:1px solid #e2e8f0;cursor:pointer;}
+.multi-leave-item:last-child{border-bottom:0;}
+.multi-leave-item input{width:auto;margin:0;}
+.multi-leave-item span{display:flex;flex-direction:column;gap:3px;}
+.multi-leave-item small{color:#64748b;}
+@media(max-width:760px){.multi-leave-top{grid-template-columns:1fr;}.multi-leave-actions span{margin-left:0;width:100%;}}
+
+/* EMPLOYEE PERFORMANCE */
+.performance-avatar{cursor:pointer;transition:transform .15s ease,box-shadow .15s ease;}
+.performance-avatar:hover{transform:scale(1.06);box-shadow:0 0 0 3px rgba(37,99,235,.18);}
+.employee-performance-modal{padding:20px;}
+.employee-performance-head{display:flex;align-items:center;gap:14px;padding-bottom:16px;border-bottom:1px solid var(--line);}
+.employee-performance-head img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid #bfdbfe;}
+.employee-performance-head h3{margin:0 0 5px;}
+.employee-performance-head p{margin:0 0 6px;color:#64748b;}
+.employee-performance-chart{margin-top:14px;border:1px solid var(--line);border-radius:12px;padding:10px;background:#fff;overflow:hidden;}
+
+/* MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(15,23,42,.55);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  z-index:100;
+}
+
+.modal-box{
+  width:min(850px,96vw);
+  max-height:92vh;
+  overflow:auto;
+  background:white;
+  border-radius:18px;
+  box-shadow:0 30px 70px rgba(0,0,0,.25);
+}
+
+.modal-head{
+  padding:18px 22px;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.modal-head h2{margin:0}
+/* Nút quay về khu vực: chỉ hiện trong chi tiết TAG CHUYỀN, chỉ có mũi tên và nằm giữa ô */
+.modal-head .modal-back-area-btn{
+  margin-left:auto;
+  margin-right:8px;
+  width:36px;
+  min-width:36px;
+  height:36px;
+  min-height:36px;
+  padding:0;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid #bfdbfe;
+  border-radius:9px;
+  background:#e0f2fe;
+  color:#1d4ed8;
+  font-size:22px;
+  line-height:1;
+  font-weight:900;
+  cursor:pointer;
+  white-space:nowrap;
+}
+.modal-head .modal-back-area-btn:hover{
+  background:#dbeafe;
+  border-color:#93c5fd;
+}
+@media(max-width:600px){
+  .modal-head .modal-back-area-btn{padding:7px 9px;font-size:12px;margin-right:6px;}
+}
+
+
+.modal-head button{
+  width:36px;
+  height:36px;
+  font-size:24px;
+  background:#fee2e2;
+  color:#dc2626;
+}
+
+#modalBody{
+  padding:22px;
+}
+
+@media(max-width:1100px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .status-grid,.two-col,.area-grid{grid-template-columns:1fr}
+  .topbar{flex-direction:column;align-items:flex-start}
+  .equip-form{grid-template-columns:repeat(2,1fr)}
+  .equip-form .span-2,
+  .equip-form .span-4,
+  .equip-form-actions{grid-column:span 2}
+}
+
+@media(max-width:760px){
+  .app{display:block}
+  .sidebar{width:100%}
+  .grid-form{grid-template-columns:1fr}
+  .form-actions{grid-column:1}
+  .stats{grid-template-columns:1fr}
+  .equip-form{grid-template-columns:1fr}
+  .equip-form .span-2,
+  .equip-form .span-4,
+  .equip-form-actions{grid-column:span 1}
+}
+
+
+/* LANGUAGE SWITCHER */
+.language-switcher{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  background:#f8fafc;
+  border:1px solid var(--line);
+  border-radius:9px;
+  padding:3px 7px;
+}
+.language-switcher span{font-size:16px}
+.language-switcher select{
+  width:auto;
+  min-width:115px;
+  padding:8px 28px 8px 8px;
+  border:0;
+  background:transparent;
+  font-weight:800;
+  color:#1e293b;
+  cursor:pointer;
+  box-shadow:none;
+}
+.language-switcher select:focus{box-shadow:none;border:0}
+@media(max-width:760px){
+  .language-switcher select{min-width:100px}
+}
+
+/* Chấm công tuần - đồng bộ theo dữ liệu Theo dõi tăng ca */
+.weekly-attendance-wrap{overflow-x:auto}
+.weekly-attendance-table{width:100%;border-collapse:collapse}
+.weekly-attendance-table th,.weekly-attendance-table td{padding:8px 10px;text-align:center;border-bottom:1px solid #dbe4f0;font-size:12px}
+.weekly-attendance-table th:first-child,.weekly-attendance-table td:first-child{text-align:left;min-width:150px}
+.attendance-tag{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:24px;padding:0 6px;border-radius:6px;font-weight:800;font-size:12px}
+.att-zero{background:#f8fafc;color:#64748b}
+.att-number{background:#eef2f7;color:#111827}
+.att-S{background:#fef3c7;color:#92400e}
+.att-C{background:#ffedd5;color:#c2410c}
+.att-N{background:#fee2e2;color:#b91c1c}
+
+/* Shift schedule: two separate day/night tables */
+.shift-table-section{border:1px solid #d9e3f0;border-radius:12px;padding:12px;background:#fff}
+.shift-section-title{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:2px 0 12px}
+.shift-section-title h2{margin:0;font-size:17px}
+.shift-table th,.shift-table td{white-space:nowrap}
+.shift-table th{position:sticky;top:0;z-index:2;background:#f3f7fb}
+@media(max-width:900px){.shift-table-section{overflow:hidden}.shift-table{min-width:900px}}
+.area-line-tags{display:flex;flex-wrap:wrap;gap:8px;padding:0 20px 12px}
+.area-line-tags .badge{display:inline-flex;align-items:center;font-size:12px}
+.area-line-tags{display:flex;flex-wrap:wrap;gap:8px;padding:0 20px 12px}
+.area-line-tags .badge{display:inline-flex;align-items:center;font-size:12px}
+.area-bar-line{display:block;margin-top:4px;color:#64748b;font-weight:600;font-size:11px}
+.bar-row>div:first-child{min-width:230px}
+
+/* Thanh lọc tăng ca: một hàng ngang */
+.filters{
+  display:flex;
+  flex-wrap:nowrap;
+  align-items:center;
+  gap:8px;
+  width:100%;
+  overflow-x:auto;
+  padding-bottom:4px;
+}
+.filters input,
+.filters select{
+  width:auto;
+  flex:0 0 auto;
+  min-width:150px;
+}
+.filters #otSearch{
+  flex:1 1 320px;
+  min-width:280px;
+}
+.filters #otDate{
+  width:150px;
+}
+.filters button{
+  flex:0 0 auto;
+  white-space:nowrap;
+}
+.planned-ot-btn{
+  background:#f59e0b;
+  color:white;
+  padding:10px 14px;
+}
+
+
+/* Bảng Dự kiến tăng ca dạng lịch tháng */
+.planned-ot-table-box{display:grid;gap:12px;min-width:0;}
+.planned-ot-table-toolbar{display:flex;align-items:end;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+.planned-ot-table-toolbar label{display:block;font-weight:800;margin-bottom:5px;}
+.planned-ot-table-toolbar input[type="month"]{height:38px;border:1px solid var(--line);border-radius:8px;padding:0 10px;font-weight:700;}
+.planned-ot-table-actions{display:flex;gap:8px;flex-wrap:wrap;}
+.planned-ot-table-wrap{overflow:auto;border:1px solid var(--line);border-radius:10px;max-height:70vh;background:#fff;}
+.planned-ot-table{border-collapse:separate;border-spacing:0;min-width:max-content;width:100%;font-size:12px;}
+.planned-ot-table th,.planned-ot-table td{border-right:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0;text-align:center;padding:5px;}
+.planned-ot-table th{height:48px;background:#f8fafc;font-weight:900;position:sticky;top:0;z-index:3;}
+.planned-ot-table .planned-name-col{position:sticky;left:0;z-index:4;background:#fff;text-align:left;min-width:185px;padding:7px 10px;}
+.planned-ot-table th.planned-name-col{background:#f8fafc;}
+.planned-ot-table .planned-name-col small{display:block;color:#64748b;margin-top:3px;font-weight:600;}
+.planned-ot-table th.sunday-col,.planned-ot-table td.sunday-col{background:#fee2e2;color:#dc2626;}
+.planned-ot-table th.sunday-col{color:#dc2626;}
+.planned-ot-table td{height:42px;}
+.planned-grid-cell{width:34px;height:30px;border:1px solid #cbd5e1;border-radius:7px;text-align:center;background:#fff;outline:none;font-weight:700;}
+.planned-grid-cell.planned-zero{background:#dbeafe;border-color:#2563eb;color:#1d4ed8;}
+.planned-grid-cell:focus{border-color:#2563eb;box-shadow:0 0 0 2px rgba(37,99,235,.12);}
+.planned-ot-table .planned-total-col{min-width:72px;}
+.planned-total-cell{font-weight:900;min-width:72px;background:#fff;}
+@media(max-width:760px){.planned-ot-table-toolbar{align-items:stretch;}.planned-ot-table-actions{width:100%;}.planned-ot-table-actions button{flex:1;}.planned-ot-table .planned-name-col{min-width:150px;}}
+/* Cho phép kéo góc phải dưới để thay đổi kích thước bảng Dự kiến tăng ca */
+.planned-ot-resizable-modal{
+  width:calc(100vw - 36px);
+  height:calc(100vh - 36px);
+  max-width:none;
+  max-height:none;
+  min-width:620px;
+  min-height:420px;
+  position:relative;
+  overflow:hidden;
+}
+.planned-ot-resizable-modal #modalBody{
+  height:calc(100% - 61px);
+  box-sizing:border-box;
+  overflow:hidden;
+}
+.planned-ot-resizable-modal .planned-ot-table-box{height:100%;}
+.planned-ot-resizable-modal .planned-ot-table-wrap{
+  max-height:none;
+  min-height:0;
+  flex:1;
+}
+.planned-ot-resize-handle{
+  display:none;
+  position:absolute;
+  right:3px;
+  bottom:3px;
+  width:22px;
+  height:22px;
+  cursor:nwse-resize;
+  z-index:20;
+  border-radius:5px;
+  background:linear-gradient(135deg,transparent 0 35%,#94a3b8 36% 43%,transparent 44% 55%,#64748b 56% 63%,transparent 64%);
+}
+.resizing-planned-ot,.resizing-planned-ot *{cursor:nwse-resize!important;user-select:none!important;}
+@media(max-width:640px){
+  .planned-ot-resizable-modal{min-width:0;width:calc(100vw - 24px);min-height:420px;}
+}
+
+
+/* DỰ KIẾN TĂNG CA */
+.planned-ot-btn{
+  background:#f59e0b;
+  color:white;
+  padding:11px 16px;
+}
+.planned-ot-box{display:grid;gap:14px;}
+.planned-ot-top{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.planned-ot-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.planned-ot-actions span{font-weight:800;color:#2563eb;margin-left:auto;}
+.planned-ot-list{max-height:420px;overflow:auto;border:1px solid var(--line);border-radius:12px;padding:8px;}
+.planned-ot-item{display:flex;align-items:center;gap:10px;margin:0;padding:11px 10px;border-bottom:1px solid #e2e8f0;cursor:pointer;}
+.planned-ot-item:last-child{border-bottom:0;}
+.planned-ot-item input{width:auto;margin:0;}
+.planned-ot-item span{display:flex;flex-direction:column;gap:3px;}
+.planned-ot-item b{color:#ef4444;}
+.planned-ot-item small{color:#64748b;}
+@media(max-width:760px){.planned-ot-top{grid-template-columns:1fr;}.planned-ot-actions span{margin-left:0;width:100%;}}
+
+/* Ô tăng ca được lấy từ Dự kiến tăng ca */
+.ot-cell.planned-ot-cell{
+  border:2px solid #f59e0b;
+  background:#fff7ed;
+  color:#b45309;
+  font-weight:800;
+}
+
+
+/* Lọc nhanh trong Theo dõi tăng ca */
+.ot-filter-btn{padding:11px 14px;white-space:nowrap;}
+.ot-summary-box{display:grid;gap:14px;min-width:0;}
+.ot-summary-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:10px;border-bottom:1px solid var(--line);font-size:16px;}
+.ot-summary-count{background:#dbeafe;color:#2563eb;border-radius:999px;padding:6px 10px;font-size:12px;font-weight:800;}
+.ot-summary-list{max-height:500px;overflow:auto;border:1px solid var(--line);border-radius:12px;padding:6px 10px;background:#fff;}
+.ot-summary-item{display:grid;grid-template-columns:minmax(190px,240px) 1fr;gap:12px;padding:12px 4px;border-bottom:1px solid #e2e8f0;align-items:start;}
+.ot-summary-item:last-child{border-bottom:0;}
+.ot-summary-person{display:flex;flex-direction:column;gap:3px;}
+.ot-summary-person b{color:#ef4444;}
+.ot-summary-person small{color:#64748b;font-weight:700;}
+.ot-summary-days{display:flex;flex-wrap:wrap;gap:7px;}
+.ot-summary-day{display:flex;flex-direction:column;gap:2px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:7px 9px;min-width:105px;font-size:12px;}
+.ot-summary-day span{color:#475569;font-weight:700;}
+.ot-summary-day.planned{background:#fff7ed;border-color:#f59e0b;}
+.ot-summary-day.leave{background:#fff7ed;border-color:#fdba74;}
+.ot-empty{padding:30px;text-align:center;color:#64748b;font-weight:700;}
+@media(max-width:760px){.ot-summary-item{grid-template-columns:1fr;}.ot-summary-head{align-items:flex-start;flex-direction:column;}}
+
+/* Bộ lọc ngày trong 2 cửa sổ thống kê tăng ca */
+.ot-summary-date-filter{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:14px;
+  padding:10px 12px;
+  background:#f8fafc;
+  border:1px solid #dbe4f0;
+  border-radius:10px;
+}
+.ot-summary-date-filter label{font-weight:800;color:#334155;white-space:nowrap}
+.ot-summary-date-filter input{width:170px;margin:0}
+
+/* ===== GIAO DIỆN GỌN - COMPACT UI ===== */
+:root{--compact-scale:.92}
+body{font-size:13px;line-height:1.35}
+.app-shell{gap:12px}
+.sidebar{width:210px;padding:14px 10px}
+.main{padding:12px;gap:10px}
+.page-head{padding:10px 14px;margin-bottom:10px}
+.page-head h1{font-size:20px;margin:0}
+.panel{border-radius:10px}
+.panel-head{padding:10px 14px}
+.panel-head h2{font-size:16px;margin:0 0 2px}
+.panel-head p{font-size:12px;margin:0}
+.panel>div[style*="padding:18px"]{padding:10px!important}
+.filters{gap:6px!important;padding:0 0 3px!important}
+.filters input,.filters select,.filters button{height:34px;padding:6px 9px;font-size:12px}
+.filters #otSearch{min-width:220px;flex-basis:260px}
+.filters #otDate{width:125px}
+.ot-filter-btn,.planned-ot-btn{padding:7px 9px!important}
+.legend{gap:8px!important;margin:8px 0!important;font-size:11px}
+.legend-item{gap:4px!important}
+.sample{min-width:28px!important;padding:3px 5px!important;font-size:10px}
+.table-wrap{max-height:calc(100vh - 220px);overflow:auto}
+.ot-table{font-size:11px}
+.ot-table th,.ot-table td{padding:5px 4px!important;height:28px}
+.ot-table th{font-size:10px}
+.modal-content{max-width:760px!important;border-radius:10px!important}
+.modal-head{padding:10px 14px!important}
+.modal-body{padding:12px!important}
+.ot-summary-box{gap:8px!important}
+.ot-summary-date-filter{margin-bottom:8px!important;padding:7px 9px!important;gap:7px!important}
+.ot-summary-date-filter input{width:135px!important;height:32px}
+.ot-summary-date-filter button{height:32px;padding:5px 9px;font-size:12px}
+.ot-summary-list{max-height:420px!important}
+.ot-summary-item{grid-template-columns:minmax(150px,190px) 1fr!important;gap:8px!important;padding:8px 3px!important}
+.ot-summary-day{min-width:85px!important;padding:5px 7px!important;font-size:11px!important}
+button{border-radius:7px}
+input,select,textarea{border-radius:7px!important}
+@media(max-width:900px){.sidebar{width:185px}.main{padding:8px}.filters{overflow-x:auto}.ot-summary-item{grid-template-columns:1fr!important}}
+@media(max-width:700px){.sidebar{width:62px}.sidebar .nav-item span,.sidebar .brand-text{display:none}.main{padding:6px}.page-head h1{font-size:17px}}
+
+/* Chấm công tuần: dữ liệu lấy trực tiếp từ Theo dõi tăng ca */
+.weekly-attendance-panel .attendance-tag:empty{display:inline-flex;background:transparent;min-width:28px}
+.weekly-attendance-panel .att-number{background:#dcfce7;color:#059669}
+.weekly-attendance-panel .att-S{background:#fef3c7;color:#92400e}
+.weekly-attendance-panel .att-C{background:#ffedd5;color:#c2410c}
+.weekly-attendance-panel .att-N{background:#fee2e2;color:#b91c1c}
+
+
+/* Chấm công tuần nằm ở vùng trống bên phải của Trạng thái làm việc */
+.status-weekly-panel{margin-bottom:0;align-self:stretch;min-width:0;}
+.status-employee-list{max-height:520px;overflow-y:auto;overflow-x:hidden;padding:16px;scrollbar-width:auto;}
+.status-weekly-panel .weekly-attendance-wrap{max-height:520px;overflow-y:auto;overflow-x:auto;}
+.status-weekly-panel .weekly-attendance-table thead th{position:sticky;top:0;z-index:3;background:#f8fafc;}
+@media(max-width:760px){.status-weekly-panel{margin-top:0;}}
+
+/* BIỂU ĐỒ CỘT XU HƯỚNG HIỆU SUẤT */
+
+.performance-legend{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin:0 0 10px;color:#475569;font-size:13px;font-weight:700}
+.performance-legend span{display:inline-flex;align-items:center;gap:6px}
+.performance-legend i{display:inline-block;width:14px;height:14px;border-radius:4px}
+.performance-legend-current{background:#38bdf8}
+.performance-legend-previous{background:#94a3b8;opacity:.45}
+.performance-legend b{margin-left:auto;color:#2563eb}
+.employee-performance-bar-chart{
+  display:grid;
+  grid-template-columns:48px 1fr;
+  gap:10px;
+  height:310px;
+  padding:18px 18px 10px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:#fff;
+}
+.performance-y-axis{
+  height:250px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  align-items:flex-end;
+  padding:2px 0 22px;
+  font-size:12px;
+  color:#334155;
+}
+.performance-chart-area{
+  position:relative;
+  height:250px;
+  min-width:0;
+}
+.performance-grid-line{
+  position:absolute;
+  left:0;
+  right:0;
+  border-top:1px solid #e2e8f0;
+}
+.performance-grid-line.g100{top:0}
+.performance-grid-line.g75{top:25%}
+.performance-grid-line.g50{top:50%}
+.performance-grid-line.g25{top:75%}
+.performance-grid-line.g0{top:100%}
+.performance-bars{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-around;
+  gap:18px;
+  padding:0 14px;
+}
+.performance-bar-col{
+  height:100%;
+  flex:1;
+  max-width:72px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-end;
+  position:relative;
+  z-index:1;
+}
+.performance-bar-stack{
+  width:100%;
+  height:100%;
+  position:relative;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+}
+.performance-bar{
+  position:absolute;
+  left:18%;
+  width:64%;
+  min-height:0;
+  border-radius:10px 10px 0 0;
+  transition:height .2s ease;
+}
+.performance-bar.previous{
+  background:#94a3b8;
+  opacity:.30;
+  z-index:1;
+}
+.performance-bar.current{
+  background:linear-gradient(180deg,#38bdf8,#34d399);
+  z-index:2;
+}
+.performance-bar-value{
+  font-size:12px;
+  font-weight:900;
+  margin-bottom:5px;
+  color:#111827;
+}
+.performance-bar-label{
+  position:absolute;
+  bottom:-27px;
+  font-size:12px;
+  color:#475569;
+  font-weight:700;
+}
+@media(max-width:600px){
+  .employee-performance-bar-chart{grid-template-columns:40px 1fr;padding:14px 10px;height:280px;gap:6px}
+  .performance-bars{gap:7px;padding:0 5px}
+  .performance-bar-col{max-width:48px}
+}
+
+/* SHIFT PAGE - bố cục theo mẫu bảng đảo ca */
+.shift-page{width:100%}
+.shift-stats{grid-template-columns:repeat(4,1fr)}
+.shift-stats .stat-card small{display:block;margin-top:6px;color:#64748b}
+.shift-main-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:16px;align-items:stretch}
+.shift-editor,.shift-board{margin-bottom:0;min-width:0}
+.shift-form-body{padding:16px}
+.shift-form-body label{margin-top:2px}
+.shift-form-body input,.shift-form-body select{margin-bottom:10px}
+.shift-form-actions{display:flex;gap:8px;margin:2px 0 12px}
+.shift-rule-note{background:#ecfdf5;border:1px solid #86efac;border-radius:12px;padding:12px;color:#166534;font-size:12px;line-height:1.55}
+.shift-board-body{padding:14px}
+.shift-filters{display:grid;grid-template-columns:minmax(220px,1fr) 145px 145px auto;gap:8px;align-items:end}
+.shift-filters>div{min-width:0}
+.shift-filters label{font-size:11px;margin-bottom:5px;color:#64748b}
+.shift-update-btn{height:40px;white-space:nowrap}
+.shift-summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+.shift-summary{border:1px solid #d9e3f0;border-radius:15px;overflow:hidden;min-height:115px;background:#fff}
+.shift-summary>div:first-child{display:flex;justify-content:space-between;padding:11px 14px;border-bottom:1px solid #d9e3f0}
+.shift-summary>div:first-child b{font-size:14px}
+.shift-summary>div:first-child span{font-weight:900}
+.day-summary>div:first-child{background:#fff3dc;color:#a34b00}
+.night-summary>div:first-child{background:#edf2f7;color:#111827}
+.shift-summary>div:last-child{padding:14px;text-align:center;color:#64748b;font-size:12px;line-height:1.55;max-height:72px;overflow:auto}
+.shift-detail-table{max-height:360px;border:1px solid #d9e3f0;border-radius:14px}
+.shift-detail-table .shift-table{min-width:880px}
+.shift-detail-table .shift-table th{position:sticky;top:0;z-index:3;background:#f3f7fb}
+.shift-detail-table .shift-table th,.shift-detail-table .shift-table td{padding:10px 12px}
+@media(max-width:1050px){.shift-main-grid{grid-template-columns:1fr}.shift-stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.shift-filters{grid-template-columns:1fr 1fr}.shift-update-btn{width:100%}.shift-summary-grid{grid-template-columns:1fr}.shift-stats{grid-template-columns:1fr 1fr}}
+
+/* SHIFT PAGE - compact stats, enlarged day/night panels */
+.shift-stats{gap:14px;margin-bottom:16px}
+.shift-stats .stat-card{padding:13px 16px;min-height:92px}
+.shift-stats .stat-card p{margin:0 0 7px;font-size:12px}
+.shift-stats .stat-card b{font-size:25px}
+.shift-stats .stat-card small{font-size:11px}
+.shift-summary-grid{grid-template-columns:1fr 1fr;gap:14px;margin:14px 0 0}
+.shift-summary{min-height:420px;height:420px;display:flex;flex-direction:column}
+.shift-summary-head{display:flex;justify-content:space-between;align-items:center;padding:13px 15px!important;border-bottom:1px solid #d9e3f0;flex:0 0 auto}
+.shift-summary-head b{font-size:15px!important}
+.shift-summary-list{padding:0!important;text-align:left!important;max-height:none!important;overflow-y:auto!important;overflow-x:hidden;flex:1;background:#fff}
+.shift-list-head,.shift-person-row{display:grid;grid-template-columns:42px minmax(190px,1fr) 130px 160px 34px;align-items:center;gap:8px}
+.shift-list-head{position:sticky;top:0;z-index:2;padding:10px 12px;background:#f8fafc;border-bottom:1px solid #dbe5ef;color:#64748b;font-size:11px;font-weight:900}
+.shift-person-row{min-height:45px;padding:8px 12px;border-bottom:1px solid #e5edf5;font-size:12px;color:#1e293b}
+.shift-person-row:hover{background:#f8fbff}
+.shift-person-index{font-weight:800;color:#64748b;text-align:center}
+.shift-person-name{font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.shift-person-date{font-weight:700;color:#475569;white-space:nowrap}
+.shift-person-edit{width:30px;height:30px;border-radius:8px;background:#f59e0b;color:#fff;font-weight:900;cursor:pointer}
+.shift-empty{padding:30px;text-align:center;color:#64748b}
+.shift-board-body{padding:12px}
+@media(max-width:1150px){
+  .shift-list-head,.shift-person-row{grid-template-columns:34px minmax(160px,1fr) 115px 145px 32px}
+}
+@media(max-width:900px){
+  .shift-summary-grid{grid-template-columns:1fr}
+  .shift-summary{height:360px;min-height:360px}
+}
+
+/* SHIFT PAGE - bỏ form bên trái, bảng đảo ca dùng toàn bộ chiều rộng */
+.shift-main-grid{display:block}
+.shift-board{width:100%;margin-bottom:0}
+.shift-board-body{padding:14px}
+.shift-summary-grid{grid-template-columns:1fr 1fr;gap:14px;margin:14px 0 0}
+.shift-summary{min-height:520px;height:520px;display:flex;flex-direction:column}
+.shift-summary-list{padding:0!important;text-align:left!important;max-height:none!important;overflow-y:auto!important;overflow-x:auto;flex:1;background:#fff}
+.shift-list-head,.shift-person-row{display:grid;grid-template-columns:52px minmax(260px,1.4fr) 180px 220px 44px;align-items:center;gap:10px;min-width:760px}
+.shift-list-head{position:sticky;top:0;z-index:2;padding:11px 14px;background:#f8fafc;border-bottom:1px solid #dbe5ef;color:#64748b;font-size:12px;font-weight:900}
+.shift-person-row{min-height:54px;padding:9px 14px;border-bottom:1px solid #e5edf5;font-size:13px;color:#1e293b}
+.shift-person-name{font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.shift-person-date{font-weight:700;color:#475569;white-space:nowrap}
+.shift-person-edit{width:34px;height:34px;border-radius:8px;background:#f59e0b;color:#fff;font-weight:900;cursor:pointer}
+.shift-person-edit:hover{filter:brightness(.96);transform:scale(1.03)}
+@media(max-width:900px){.shift-summary-grid{grid-template-columns:1fr}.shift-summary{height:420px;min-height:420px}}
+
+/* COMPACT SUMMARY TAGS - giảm kích thước các thẻ thống kê trên các mục */
+.stats{gap:10px;margin-bottom:14px}
+.stat-card{padding:9px 12px;min-height:62px;border-radius:12px}
+.stat-card p{margin:0 0 5px;font-size:11px}
+.stat-card b{font-size:18px;line-height:1.15}
+.stat-card small{font-size:10px}
+.shift-stats{gap:10px;margin-bottom:12px}
+.shift-stats .stat-card{padding:9px 12px;min-height:62px}
+.shift-stats .stat-card p{margin:0 0 5px;font-size:11px}
+.shift-stats .stat-card b{font-size:18px}
+.shift-stats .stat-card small{font-size:10px}
+@media(max-width:760px){
+  .stats,.shift-stats{gap:8px}
+  .stat-card{padding:8px 10px;min-height:58px}
+  .stat-card b,.shift-stats .stat-card b{font-size:17px}
+}
+
+/* Cân đối nút Sửa trong bảng Ca làm việc ở mọi kích thước màn hình */
+.shift-summary-list{overflow-y:auto!important;overflow-x:hidden!important}
+.shift-list-head,.shift-person-row{
+  width:100%;
+  min-width:0!important;
+  grid-template-columns:clamp(32px,4%,48px) minmax(140px,1.5fr) minmax(105px,1fr) minmax(135px,1.25fr) 40px!important;
+  align-items:center;
+}
+.shift-person-edit{
+  width:32px!important;
+  height:32px!important;
+  min-width:32px;
+  justify-self:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0;
+  margin:0;
+}
+.shift-list-head > span:last-child{display:block}
+@media(max-width:900px){
+  .shift-list-head,.shift-person-row{
+    grid-template-columns:34px minmax(120px,1.4fr) minmax(95px,1fr) minmax(125px,1.2fr) 38px!important;
+  }
+}
+@media(max-width:650px){
+  .shift-list-head,.shift-person-row{
+    grid-template-columns:30px minmax(110px,1.3fr) minmax(90px,1fr) minmax(115px,1.15fr) 36px!important;
+    gap:5px;
+    padding-left:8px;
+    padding-right:8px;
+  }
+  .shift-person-edit{width:30px!important;height:30px!important;min-width:30px}
+}
+
+/* CƠ CẤU TỔ CHỨC: mỗi tag chức vụ có thanh cuộn riêng */
+.org-role-card{overflow:hidden}
+.org-role-card h2{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.org-role-scroll{max-height:320px;overflow-y:auto;overflow-x:auto;border:1px solid #e2e8f0;border-radius:10px}
+.org-role-scroll table{min-width:700px}
+.org-role-scroll thead th{position:sticky;top:0;z-index:2;background:#f8fafc}
+@media(max-width:760px){.org-role-scroll{max-height:260px}}
+
+
+/* AREA DISTRIBUTION - COLUMN CHART */
+.area-column-chart{display:flex;min-height:360px;padding:24px 24px 18px 16px;gap:12px;}
+.area-chart-y{width:42px;display:flex;flex-direction:column;justify-content:space-between;padding:0 0 28px;color:#64748b;font-size:11px;text-align:right;}
+.area-chart-body{flex:1;display:flex;align-items:stretch;justify-content:space-around;gap:18px;border-bottom:1px solid #cbd5e1;background:repeating-linear-gradient(to bottom,transparent 0,transparent calc(25% - 1px),#e2e8f0 calc(25% - 1px),#e2e8f0 25%);padding:0 10px;}
+.area-column-item{flex:1;min-width:55px;max-width:110px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;position:relative;padding-top:20px;}
+.area-column-value{font-weight:900;color:#1d4ed8;font-size:13px;margin-bottom:5px;}
+.area-column-track{width:min(58px,70%);height:255px;display:flex;align-items:flex-end;background:rgba(226,232,240,.45);border-radius:10px 10px 0 0;overflow:hidden;}
+.area-column-track span{display:block;width:100%;background:linear-gradient(180deg,#2563eb,#38bdf8);border-radius:10px 10px 0 0;min-height:2px;}
+.area-column-label{margin-top:9px;text-align:center;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:120px;}
+.area-column-item small{color:#64748b;margin-top:3px;}
+.area-column-lines-scroll{width:min(118px,100%);height:52px;margin-top:6px;padding:3px 5px;overflow-y:auto;overflow-x:hidden;border:1px solid #dbe5f1;border-radius:7px;background:rgba(248,250,252,.92);box-sizing:border-box;font-size:9px;color:#475569;scrollbar-width:thin;}
+.area-column-lines-scroll div{display:flex;align-items:center;justify-content:space-between;gap:4px;min-height:16px;border-bottom:1px dashed #e2e8f0;}
+.area-column-lines-scroll div:last-child{border-bottom:0;}
+.area-column-lines-scroll span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.area-column-lines-scroll b{flex:0 0 auto;font-size:9px;color:#1d4ed8;}
+@media(max-width:760px){.area-column-chart{min-height:300px;padding-left:8px;gap:5px}.area-chart-y{width:32px}.area-chart-body{gap:7px;padding:0 4px}.area-column-track{height:210px;width:min(46px,80%)}.area-column-label{font-size:11px;max-width:80px}.area-column-lines-scroll{width:78px;height:48px;font-size:8px}}
+
+/* HOME COMPACT HEADER + EMPLOYEE INFO */
+.home-tools{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:nowrap;
+}
+.home-tools .search{
+  flex:1 1 auto;
+  min-width:220px;
+}
+.home-tools .primary{
+  flex:0 0 auto;
+  white-space:nowrap;
+}
+.employee-photo-click{
+  cursor:pointer;
+  transition:transform .15s, box-shadow .15s;
+}
+.employee-photo-click:hover{
+  transform:scale(1.06);
+  box-shadow:0 0 0 3px rgba(37,99,235,.15);
+}
+.employee-info-view{padding:20px;}
+.employee-info-head{display:flex;align-items:center;gap:18px;padding-bottom:18px;border-bottom:1px solid var(--line);}
+.employee-info-avatar{width:88px;height:88px;border-radius:50%;object-fit:cover;border:3px solid #bfdbfe;}
+.employee-info-head h2{margin:0 0 7px;font-size:22px;}
+.employee-info-head p{margin:0;color:#64748b;}
+.employee-info-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px;}
+.employee-info-grid div{padding:13px 14px;border:1px solid var(--line);border-radius:11px;background:#f8fafc;display:flex;justify-content:space-between;gap:14px;}
+.employee-info-grid span{color:#64748b;}
+.employee-info-grid b{text-align:right;}
+.employee-info-actions{display:flex;justify-content:flex-end;margin-top:18px;}
+@media(max-width:760px){.home-tools{flex-wrap:wrap}.home-tools .search{min-width:0;width:100%}.employee-info-grid{grid-template-columns:1fr;}}
+
+
+/* Menu tài khoản mở từ ảnh đại diện */
+.account{position:relative;}
+.account img{cursor:pointer;}
+.account img:hover{transform:scale(1.04);}
+.account-menu{position:absolute;right:0;top:calc(100% + 8px);min-width:190px;background:#fff;border:1px solid #dbe4f0;border-radius:12px;box-shadow:0 12px 30px rgba(15,23,42,.14);padding:6px;z-index:1000;}
+.account-menu[hidden]{display:none;}
+.account-menu button{display:block;width:100%;border:0;background:transparent;text-align:left;padding:10px 12px;border-radius:8px;cursor:pointer;font:inherit;color:#0f172a;}
+.account-menu button:hover{background:#f1f5f9;}
+.account-menu .account-menu-logout{color:#dc2626;}
+
+/* Menu tài khoản: mở khi click ảnh đại diện hoặc tên tài khoản */
+.account{position:relative;display:flex;align-items:center;gap:10px;}
+.account-summary{cursor:pointer;display:flex;flex-direction:column;}
+.account-summary span{font-size:12px;color:#64748b;}
+.account-menu{position:absolute;right:0;top:calc(100% + 10px);min-width:210px;background:#fff;border:1px solid #dbe4f0;border-radius:12px;box-shadow:0 12px 30px rgba(15,23,42,.16);padding:6px;z-index:1000;}
+.account-menu[hidden]{display:none;}
+.account-menu button{display:block;width:100%;border:0;background:transparent;text-align:left;padding:11px 12px;border-radius:8px;cursor:pointer;font:inherit;color:#0f172a;}
+.account-menu button:hover{background:#f1f5f9;}
+.account-menu .account-menu-logout{color:#dc2626;}
+
+/* Ngôn ngữ nằm trong menu tài khoản */
+.account-language-item{padding:4px 4px 6px;}
+.account-menu-label{padding:6px 8px 5px;font-weight:800;color:#0f172a;}
+.account-language-switcher{width:100%;box-sizing:border-box;padding:3px 6px;background:#f8fafc;}
+.account-language-switcher select{width:100%;min-width:0;padding:8px 24px 8px 6px;}
+
+
+/* Header compact sizing across all pages */
+.topbar .top-actions button,
+.topbar .top-actions .file-label,
+.topbar .top-actions select{
+  min-height:36px;
+  padding:8px 12px;
+  font-size:14px;
+}
+.topbar .account{
+  transform:scale(.88);
+  transform-origin:right center;
+}
+.topbar .account-menu{
+  transform:none;
+}
+@media(max-width:1100px){
+  .topbar{padding:11px 13px;margin-bottom:13px;gap:10px}
+  .topbar h1{font-size:1.4rem}
+}
+
+/* Header thu nhỏ 50% theo yêu cầu */
+.topbar{
+  padding:6px 8px;
+  border-radius:8px;
+  gap:6px;
+  margin-bottom:8px;
+}
+.topbar h1{
+  margin:0 0 2px;
+  font-size:.8rem;
+  line-height:1.15;
+}
+.topbar p{
+  font-size:9px;
+  line-height:1.2;
+}
+.top-actions{
+  gap:5px;
+}
+.topbar .top-actions button,
+.topbar .top-actions .file-label,
+.topbar .top-actions select{
+  min-height:28px;
+  padding:5px 8px;
+  font-size:10px;
+  border-radius:6px;
+}
+.topbar .account{
+  transform:none;
+  gap:5px;
+}
+.topbar .account img{
+  width:28px;
+  height:28px;
+  border-width:1px;
+}
+.topbar .account-summary b{
+  font-size:10px;
+  line-height:1.1;
+}
+.topbar .account-summary span{
+  font-size:8px;
+  line-height:1.1;
+}
+
+/* Đồng bộ cỡ chữ toàn bộ giao diện theo thanh đầu trang */
+body,
+button,
+input,
+select,
+textarea,
+label,
+.nav-item,
+.card,
+.panel,
+.panel-head,
+.stat-card,
+.filters,
+.ot-table,
+.weekly-attendance-table,
+.shift-person-row,
+.shift-list-head,
+.area-column-label,
+.area-column-value,
+.account-menu button,
+.modal,
+.modal-body,
+.form-group {
+  font-size: 13px;
+}
+
+.topbar h1,
+.page-head h1,
+.brand h2 {
+  font-size: 20px;
+}
+
+.panel-head h2,
+.shift-section-title h2,
+.card h2,
+.modal-head h2 {
+  font-size: 16px;
+}
+
+.stat-card b,
+.shift-stats .stat-card b {
+  font-size: 18px;
+}
+
+.topbar p,
+.brand p,
+.stat-card small,
+.shift-stats .stat-card small,
+.filters label,
+.shift-filters label {
+  font-size: 11px;
+}
+
+/* Theo dõi tăng ca: bảng co giãn theo màn hình và luôn giữ đủ 31 ngày */
+.ot-table{
+  width:100%;
+  min-width:1500px;
+  table-layout:fixed;
+}
+.ot-table .name-col{width:190px;min-width:190px}
+.ot-table th:last-child,.ot-table td:last-child{width:39px;min-width:39px;max-width:39px;white-space:normal;overflow-wrap:anywhere}
+.ot-table th:not(.name-col):not(:last-child),
+.ot-table td:not(.name-col):not(:last-child){width:39px;min-width:39px}
+.ot-table th,.ot-table td{box-sizing:border-box;overflow:hidden}
+.ot-table tbody td.name-col{white-space:normal;line-height:1.2}
+.ot-table .name-col > div{min-width:0;overflow:hidden;text-overflow:ellipsis}
+.ot-cell{box-sizing:border-box;width:34px;max-width:100%;margin:auto}
+.table-wrap{overflow:auto;overflow-x:auto;overflow-y:auto;max-width:100%;-webkit-overflow-scrolling:touch}
+@media (max-width:1600px){
+  .ot-table{min-width:1450px}
+  .ot-table .name-col{width:180px;min-width:180px}
+  .ot-table th:last-child,.ot-table td:last-child{width:38px;min-width:38px;max-width:38px;white-space:normal;overflow-wrap:anywhere}
+  .ot-table th:not(.name-col):not(:last-child),
+  .ot-table td:not(.name-col):not(:last-child){width:38px;min-width:38px}
+  .ot-cell{width:32px}
+}
+@media (max-width:900px){
+  .table-wrap{width:100%;max-width:100%;overflow:auto}
+  .ot-table{min-width:1400px}
+}
+
+/* AREA DETAIL MODAL */
+.area-column-item:focus{outline:2px solid #2563eb;outline-offset:3px;border-radius:10px}
+.area-detail-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:14px}
+.area-detail-summary>div{border:1px solid #d7e2f0;border-radius:10px;padding:10px 12px;background:#f8fbff;display:flex;flex-direction:column;gap:3px}
+.area-detail-summary span{font-size:11px;color:#64748b}.area-detail-summary b{font-size:15px}
+.area-detail-grid{display:grid;grid-template-columns:minmax(0,2fr) minmax(260px,1fr);gap:14px}
+.area-detail-panel{min-width:0}
+.area-detail-panel .panel-head{padding:12px 14px}
+.area-detail-panel .panel-head h2{font-size:15px;margin:0}.area-detail-panel .panel-head p{font-size:11px;margin:3px 0 0}
+.area-detail-scroll{max-height:380px;overflow:auto;padding:0 10px 10px}
+.area-detail-scroll table{width:100%;min-width:600px}
+.area-detail-scroll thead th{position:sticky;top:0;z-index:1;background:#f5f8fc}
+.area-lines-scroll{max-height:380px;overflow:auto;padding:8px 12px 12px}
+.area-line-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 4px;border-bottom:1px solid #e2e8f0;font-size:13px}
+.area-line-row b{font-size:12px;white-space:nowrap}
+@media(max-width:900px){.area-detail-grid{grid-template-columns:1fr}.area-detail-summary{grid-template-columns:1fr 1fr 1fr}}
+@media(max-width:600px){.area-detail-summary{grid-template-columns:1fr}.area-detail-scroll,.area-lines-scroll{max-height:300px}}
+
+/* Thanh cuộn riêng cho từng tag khu vực */
+.area-list-card{max-height:430px;overflow:hidden;display:flex;flex-direction:column;}
+.area-list-scroll{max-height:360px;overflow:auto;overflow-x:auto;padding-bottom:4px;}
+.area-list-scroll table{width:100%;min-width:900px;}
+.area-list-scroll thead th{position:sticky;top:0;z-index:2;background:#f5f8fc;}
+.area-list-scroll::-webkit-scrollbar{width:8px;height:8px;}
+.area-list-scroll::-webkit-scrollbar-thumb{background:#94a3b8;border-radius:8px;}
+.area-list-scroll::-webkit-scrollbar-track{background:#eef2f7;}
+
+/* CHI TIẾT NHÂN VIÊN THEO CHUYỀN */
+.area-line-chip{width:100%;border:1px solid #d7e2f0;border-radius:9px;background:#f8fbff;padding:8px 10px;display:flex;align-items:center;justify-content:space-between;gap:10px;min-width:0;cursor:pointer;text-align:left;font:inherit;transition:all .15s ease;}
+.area-line-chip:hover{background:#e0f2fe;border-color:#60a5fa;box-shadow:0 2px 8px rgba(37,99,235,.12);transform:translateY(-1px);}
+.area-line-chip:focus{outline:2px solid #2563eb;outline-offset:1px;}
+.line-detail-back{padding:14px 20px 0;}
+.back-area-btn{background:#e0f2fe;color:#1d4ed8;border:1px solid #bfdbfe;border-radius:9px;padding:9px 13px;font-weight:800;cursor:pointer;}
+.back-area-btn:hover{background:#dbeafe;border-color:#93c5fd;}
+.line-detail-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding:20px 20px 0;}
+.line-detail-summary>div{border:1px solid var(--line);border-radius:10px;padding:12px;background:#f8fbff;display:flex;flex-direction:column;gap:4px;}
+.line-detail-summary span{font-size:11px;color:#64748b;}
+.line-detail-summary b{font-size:16px;}
+.line-detail-count{color:#2563eb;}
+.line-detail-panel{margin:14px 20px 20px;}
+.line-detail-panel .panel-head{padding:14px 16px;}
+.line-detail-panel .panel-head h2{font-size:16px;margin:0 0 4px;}
+.line-detail-panel .panel-head p{font-size:12px;margin:0;}
+.line-detail-scroll{max-height:420px;overflow:auto;padding:0 10px 10px;}
+.line-detail-scroll table{width:100%;min-width:800px;}
+.line-detail-scroll thead th{position:sticky;top:0;z-index:2;background:#f5f8fc;}
+@media(max-width:700px){.line-detail-summary{grid-template-columns:1fr;}.line-detail-panel{margin:12px;}}
+
+/* Thông tin chuyền trong chi tiết khu vực */
+.area-detail-summary-extended{grid-template-columns:repeat(3,minmax(0,1fr));}
+.area-lines-summary{margin-bottom:14px;}
+.area-lines-scroll{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;max-height:150px;overflow:auto;padding:0 2px 4px;}
+.area-line-chip{border:1px solid #d7e2f0;border-radius:9px;background:#f8fbff;padding:8px 10px;display:flex;align-items:center;justify-content:space-between;gap:10px;min-width:0;}
+.area-line-chip span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:12px;color:#334155;}
+.area-line-chip b{font-size:12px;color:#0f172a;white-space:nowrap;}
+.area-line-empty{color:#64748b;font-size:12px;padding:8px;}
+.area-lines-scroll::-webkit-scrollbar{width:8px;height:8px;}
+.area-lines-scroll::-webkit-scrollbar-thumb{background:#94a3b8;border-radius:8px;}
+.area-lines-scroll::-webkit-scrollbar-track{background:#eef2f7;}
+@media(max-width:900px){.area-detail-summary-extended{grid-template-columns:1fr 1fr 1fr}.area-lines-scroll{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:600px){.area-detail-summary-extended{grid-template-columns:1fr}.area-lines-scroll{grid-template-columns:1fr;max-height:220px;}}
+
+/* EQUIPMENT DETAIL */
+.equipment-detail-view{display:grid;gap:18px;}
+.equipment-detail-image-wrap{display:flex;justify-content:center;align-items:center;background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;padding:14px;min-height:230px;}
+.equipment-detail-image{width:min(100%,360px);height:240px;object-fit:contain;border-radius:12px;}
+.equipment-detail-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0 16px;border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+.equipment-detail-grid>div{display:flex;justify-content:space-between;gap:14px;padding:13px 14px;border-bottom:1px dashed #e2e8f0;}
+.equipment-detail-grid>div:nth-last-child(-n+2){border-bottom:0;}
+.equipment-detail-grid span{color:#64748b;}
+.equipment-detail-grid b{text-align:right;}
+.detail-number{font-size:22px;color:#2563eb;}
+.equipment-detail-section{border:1px solid var(--line);border-radius:12px;padding:14px;}
+.equipment-detail-section h3{margin:0 0 12px;}
+.equipment-repair-list{display:grid;gap:8px;}
+.equipment-repair-list>div{display:grid;grid-template-columns:100px 120px 1fr;gap:10px;padding:10px;background:#f8fafc;border-radius:8px;}
+.detail-muted{color:#64748b;margin:0;}
+.equipment-detail-actions{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;}
+@media(max-width:650px){.equipment-detail-grid{grid-template-columns:1fr;}.equipment-detail-grid>div:nth-last-child(-n+2){border-bottom:1px dashed #e2e8f0;}.equipment-detail-grid>div:last-child{border-bottom:0;}.equipment-repair-list>div{grid-template-columns:1fr;gap:4px;}}
+
+
+/* THÔNG TIN THIẾT BỊ KHI CLICK ẢNH */
+.equipment-detail-modal-box{width:min(330px,94vw);max-height:94vh;border-radius:18px;overflow:auto;}
+.equipment-detail-modal-box .modal-head{display:none;}
+.equipment-detail-card{background:#fff;position:relative;}
+.equipment-detail-photo-box{margin:0;border:1px solid #d8e4f2;border-radius:0 0 14px 14px;background:#f8fafc;padding:10px;height:184px;display:flex;align-items:center;justify-content:center;}
+.equipment-back-btn{
+  width:40px;
+  height:40px;
+  min-width:40px;
+  min-height:40px;
+  padding:0;
+  border:1px solid #bfdbfe;
+  border-radius:4px;
+  background:#e0f2fe;
+  color:#1d4ed8;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:24px;
+  font-weight:900;
+  line-height:1;
+  cursor:pointer;
+  box-shadow:0 3px 10px rgba(30,64,175,.12);
+}
+.equipment-back-btn:hover{background:#dbeafe;border-color:#93c5fd;}
+.equipment-back-btn-detail{position:absolute;top:10px;right:10px;z-index:20;}
+.equipment-subpopup{position:relative;padding:8px 6px 4px;}
+.equipment-back-btn-popup{position:absolute;top:-2px;right:-2px;z-index:5;}
+.equipment-subpopup-modal-box{width:min(360px,94vw);max-height:94vh;border-radius:18px;overflow:auto;}
+.equipment-subpopup-modal-box .modal-head{display:none;}
+@media(max-width:380px){.equipment-back-btn{width:40px;height:40px;min-width:40px;min-height:40px;font-size:22px;}.equipment-back-btn-detail{top:8px;right:8px;}}
+.equipment-detail-photo{width:100%;height:164px;object-fit:contain;border-radius:10px;}
+.equipment-detail-body{padding:14px 10px 12px;}
+.equip-detail-badge{display:inline-flex;align-items:center;padding:8px 13px;border-radius:999px;font-weight:900;font-size:13px;margin-bottom:10px;}
+.danger-badge{background:#fee2e2;color:#dc2626;}
+.ok-badge{background:#dcfce7;color:#15803d;}
+.equipment-detail-name{font-size:22px;margin:0 0 8px;font-weight:900;color:#0f172a;}
+.equipment-detail-code{font-size:13px;margin-bottom:10px;color:#0f172a;}
+.equip-detail-warning{background:#fff1f2;border:1px solid #fecdd3;color:#dc2626;border-radius:9px;padding:10px;font-weight:900;font-size:13px;line-height:1.35;margin-bottom:8px;}
+.equipment-detail-rows{display:grid;gap:0;}
+.equipment-detail-rows>div{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:37px;padding:7px 0;border-bottom:1px dashed #dbe4ee;font-size:13px;}
+.equipment-detail-rows>div span{color:#0f172a;}
+.equipment-detail-rows>div b{color:#0f172a;text-align:right;max-width:58%;word-break:break-word;}
+.equip-status-pill{padding:7px 11px;border-radius:999px;font-weight:900;white-space:nowrap;}
+.equip-status-pill.ok{background:#dcfce7;color:#15803d;}
+.equip-status-pill.warn{background:#fef3c7;color:#b45309;}
+.equipment-qty-big{font-size:24px!important;color:#2563eb!important;}
+.equipment-detail-controls{display:grid;grid-template-columns:40px minmax(0,1fr) 40px;align-items:center;gap:8px;margin:11px 0 10px;width:100%;}
+.qty-detail-btn{width:40px;min-width:40px;height:38px;padding:0;background:#f1f5f9;color:#111827;font-size:17px;font-weight:900;border-radius:8px;}
+.qty-detail-number{width:100%;min-width:0;height:38px;padding:0 12px;display:flex;align-items:center;justify-content:center;background:#eff6ff;color:#2563eb;border-radius:9px;font-size:20px;font-weight:900;box-sizing:border-box;}
+.qty-detail-input{border:0;outline:none;text-align:center;font-family:inherit;appearance:textfield;}
+.qty-detail-input::-webkit-outer-spin-button,.qty-detail-input::-webkit-inner-spin-button{appearance:none;margin:0;}
+.qty-detail-input:focus{box-shadow:0 0 0 2px #bfdbfe;}
+.equipment-detail-controls .detail-action-btn{grid-row:2;width:auto;min-width:0;}
+.equipment-detail-controls .detail-action-btn:nth-of-type(4){grid-column:2;}
+.equipment-detail-controls .qr-detail-btn{grid-column:3;}
+.detail-action-btn{height:38px;padding:0 12px!important;}
+.qr-detail-btn{width:58px;}
+.equipment-alert-setting{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:12px 0;}
+.equipment-alert-setting label{font-size:13px;font-weight:500;margin:0;white-space:nowrap;}
+.equipment-alert-setting input{width:80px;padding:9px 10px;}
+.equipment-detail-actions-left{justify-content:flex-start!important;margin-top:10px;}
+.equipment-detail-actions-left button{padding:10px 13px;}
+.equipment-created-note{margin-top:10px;color:#64748b;font-size:11px;text-align:center;}
+@media(max-width:380px){.equipment-detail-modal-box{width:96vw}.equipment-detail-photo-box{height:174px}.equipment-detail-photo{height:154px}.equipment-detail-body{padding:12px 8px}.equipment-detail-actions-left button{padding:9px 11px}.equipment-alert-setting label{font-size:12px}}
+
+/* Lọc thiết bị theo khu vực sử dụng */
+.equipment-area-filter{
+  width:auto!important;
+  min-width:175px!important;
+  background:#eff6ff;
+  color:#1d4ed8;
+  border:1px solid #bfdbfe;
+  font-weight:800;
+  cursor:pointer;
+}
+
+/* V6 - Lý do xin mua và Ghi chú nằm cạnh nhau */
+.material-note-row{
+  grid-column:span 4;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+  align-items:start;
+}
+.material-image-field,.material-note-field{min-width:0;}
+.material-image-field input[type="file"]{width:100%;}
+.material-note-field textarea{width:100%;min-height:80px;}
+@media(max-width:1024px){.material-note-row{grid-column:span 2;grid-template-columns:repeat(3,minmax(0,1fr));}}
+@media(max-width:760px){.material-note-row{grid-column:span 1;grid-template-columns:1fr;}}
+
+/* V8 - Form thêm vật tư chỉ hiển thị khi nhấn + Thêm vật tư */
+.material-form-wrap{padding:18px;border-top:1px solid var(--line);background:#fff;}
+.material-form-wrap.hidden{display:none!important;}
+
+/* V16 - Hiển thị thẻ thiết bị theo mẫu: tên lớn + quy cách + số lượng */
+.equip-card-display{
+  margin-top:10px;
+  text-align:center;
+}
+.equip-card-device-name{
+  color:#111827;
+  font-size:21px;
+  font-weight:500;
+  line-height:1.25;
+  text-transform:uppercase;
+  margin:6px 0 12px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.equip-card-info-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  align-items:start;
+}
+.equip-card-info-item{
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:5px;
+}
+.equip-card-info-item span{
+  color:#111827;
+  font-size:13px;
+  font-weight:700;
+  line-height:1.2;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+.equip-card-info-item b{
+  color:#111827;
+  font-size:15px;
+  font-weight:800;
+  max-width:100%;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.equip-card-qty-low{background:transparent;border:0;}
+.equip-card-qty-low span,.equip-card-qty-low b{color:#dc2626!important;}
+.equip-card-qty-ok{background:transparent;border:0;}
+.equip-card-qty-ok b{color:#2563eb!important;font-size:18px;}
+.equip-card-display.low .equip-card-device-name,
+.equip-card-display.low .equip-card-info-item span,
+.equip-card-display.low .equip-card-info-item b{color:#dc2626!important;}
+
+
+/* V18 - Nút +/- hai bên tên thiết bị theo mẫu */
+.equip-card-name-row{
+  display:grid;
+  grid-template-columns:40px minmax(0,1fr) 40px;
+  align-items:center;
+  gap:8px;
+  width:100%;
+  margin:6px 0 12px;
+}
+.equip-card-name-row .equip-card-device-name{
+  margin:0;
+}
+.equip-card-qty-btn{
+  width:40px;
+  height:38px;
+  border:0;
+  border-radius:8px;
+  background:#f1f5f9;
+  color:#111827;
+  font-size:18px;
+  font-weight:800;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  line-height:1;
+}
+.equip-card-qty-btn:hover{background:#e2e8f0;}
+.equip-card-qty-btn:active{transform:scale(.96);}
+
+/* V15 - Hiển thị số lượng và cảnh báo hết hàng trên thẻ thiết bị */
+.equip-card-qty-low{
+  background:#fff1f2;
+  border-color:#fecdd3;
+}
+.equip-card-qty-low span,.equip-card-qty-low b{color:#dc2626!important;}
+.equip-card-qty-ok b{color:#2563eb!important;font-size:16px;}
+.equip-card-low-warning{
+  padding:8px 10px;
+  border:1px solid #fecaca;
+  border-radius:9px;
+  background:#fee2e2;
+  color:#dc2626;
+  font-size:12px;
+  font-weight:900;
+  line-height:1.3;
+}
+.equipment-history-list{display:flex;flex-direction:column;gap:8px;margin:10px 0 18px}.equipment-history-item{padding:10px 12px;border:1px solid #dbe5f2;border-radius:8px;background:#f8fbff;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.equipment-history-item b{color:#1d4ed8;white-space:nowrap}.equipment-history-item span{color:#111827}
+.material-search{height:40px;min-width:190px;padding:0 12px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;outline:none;}
+.material-search:focus{border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.12)}
+@media(max-width:900px){.material-search{min-width:150px;flex:1}}
+
+/* V28 - Các công cụ Thông tin vật tư luôn nằm trên một hàng */
+.material-tools{
+  flex-wrap:nowrap!important;
+  white-space:nowrap;
+}
+.material-tools .material-search{
+  width:250px;
+  min-width:220px;
+  flex:0 1 250px;
+}
+@media(max-width:900px){
+  .material-tools{
+    flex-wrap:nowrap!important;
+    overflow-x:auto;
+  }
+  .material-tools .material-search{
+    width:200px;
+    min-width:200px;
+  }
+}
+
+/* V29 - Bố cục thanh công cụ vật tư theo thứ tự: Tìm kiếm | Thêm vật tư | Nhập Excel | Xuất Excel */
+.material-tools-v28{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  gap:10px!important;
+  flex-wrap:nowrap!important;
+  white-space:nowrap!important;
+}
+.material-tools-v28 .material-search{
+  order:1;
+  width:250px!important;
+  min-width:250px!important;
+  height:40px!important;
+}
+.material-tools-v28 .orange-btn{order:2;}
+.material-tools-v28 .file-label{order:3;}
+.material-tools-v28 .primary{order:4;}
+@media(max-width:760px){
+  .material-tools-v28{
+    justify-content:flex-start!important;
+    overflow-x:auto!important;
+    padding-bottom:2px;
+  }
+  .material-tools-v28 .material-search{
+    width:250px!important;
+    min-width:250px!important;
+  }
+}
+
+/* Khu vực làm việc: tiêu đề, tìm kiếm, bộ lọc và nút thao tác luôn trên 1 hàng */
+.area-list-head{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:18px!important;flex-wrap:nowrap!important;white-space:nowrap!important;}
+.area-list-title{flex:1 1 auto;min-width:0;}
+.area-list-title h2{margin:0;white-space:nowrap;}
+.area-list-tools{display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:10px!important;flex:0 0 auto;flex-wrap:nowrap!important;white-space:nowrap!important;}
+.area-list-tools .search{width:150px!important;min-width:150px!important;}
+.area-list-tools select{width:120px!important;min-width:120px!important;}
+.area-list-tools button{flex:0 0 auto!important;white-space:nowrap!important;}
+@media(max-width:900px){
+  .area-list-head{overflow-x:auto!important;padding-bottom:8px;}
+  .area-list-tools{flex:0 0 auto!important;}
+}
+
+/* Xem lại tháng trước */
+.month-review-btn{
+  background:#0f766e!important;
+  color:#fff!important;
+  border:0!important;
+  font-weight:800;
+}
+.month-review-btn:hover{filter:brightness(.95);}
+
+
+/* Nút chuyển tháng trên bảng tăng ca */
+.month-nav-btn{
+  min-width:42px!important;
+  width:42px!important;
+  height:38px!important;
+  padding:0!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  background:#0b78e3!important;
+  color:#fff!important;
+  border:0!important;
+  border-radius:7px!important;
+  font-size:24px!important;
+  line-height:1!important;
+  font-weight:800!important;
+  cursor:pointer!important;
+  box-sizing:border-box!important;
+}
+.month-nav-btn:hover{filter:brightness(.95);}
+
+
+/* ===== BẢNG THEO DÕI TĂNG CA - BẢN MỚI ===== */
+.ot-table{
+  width:max-content !important;
+  min-width:max-content !important;
+  table-layout:fixed !important;
+  border-collapse:separate;
+  border-spacing:0;
+}
+.ot-table .name-col{
+  width:210px !important;
+  min-width:210px !important;
+  max-width:210px !important;
+}
+.ot-table th:not(.name-col):not(:last-child),
+.ot-table td:not(.name-col):not(:last-child){
+  width:64px !important;
+  min-width:64px !important;
+  max-width:64px !important;
+  box-sizing:border-box;
+  overflow:visible !important;
+}
+.ot-table th:last-child,
+.ot-table td:last-child,
+.ot-table .ot-total-cell{
+  width:82px !important;
+  min-width:82px !important;
+  max-width:82px !important;
+  box-sizing:border-box;
+  overflow:visible !important;
+}
+.ot-table thead th:not(.name-col){
+  height:48px !important;
+  padding:6px 3px !important;
+  font-size:13px !important;
+  font-weight:900 !important;
+  line-height:1.15 !important;
+  white-space:nowrap !important;
+}
+.ot-table tbody td:not(.name-col){
+  height:52px !important;
+  padding:7px 3px !important;
+  overflow:visible !important;
+}
+.ot-table .ot-cell{
+  display:block !important;
+  width:58px !important;
+  min-width:58px !important;
+  max-width:58px !important;
+  height:38px !important;
+  min-height:38px !important;
+  margin:0 auto !important;
+  padding:0 2px !important;
+  box-sizing:border-box !important;
+  border:1.5px solid #bfd0e5 !important;
+  border-radius:9px !important;
+  background:#fff !important;
+  color:#0f172a !important;
+  text-align:center !important;
+  font-size:18px !important;
+  font-weight:800 !important;
+  line-height:36px !important;
+  font-family:Arial,sans-serif !important;
+  letter-spacing:-.2px !important;
+  outline:none !important;
+  overflow:visible !important;
+  text-overflow:clip !important;
+  white-space:nowrap !important;
+}
+.ot-table .ot-cell:focus{
+  outline:2px solid #2563eb !important;
+  outline-offset:1px !important;
+}
+.ot-table .ot-cell.val-S,
+.ot-table .ot-cell.val-S2,
+.ot-table .ot-cell.val-S15,
+.ot-table .ot-cell.val-S05,
+.ot-table .ot-cell.val-S25,
+.ot-table .ot-cell.val-S35{
+  background:#fff21a !important;
+  color:#000 !important;
+  border-color:#fff21a !important;
+}
+.ot-table .ot-cell.val-C{background:#fdba74 !important;color:#000 !important}
+.ot-table .ot-cell.val-N{background:#ef4444 !important;color:#fff !important}
+.ot-table td.sunday-col .ot-cell:not([class*="val-"]){background:#fff1f2 !important}
+.ot-table .name-col > span{display:block;overflow:visible;white-space:nowrap}
+.ot-table .name-col b{font-size:14px}
+.ot-table .name-col small{font-size:11px}
+
+/* Ô nhập luôn cho phép gõ trực tiếp bằng bàn phím: 0.5 / 1.5 / 2.5 / 3.5 / S0.5 / S1.5 / S2.5 / S3.5 */
+.ot-table .ot-cell::selection{background:#bfdbfe;color:#0f172a}
+.ot-table .ot-cell::-webkit-input-placeholder{color:#94a3b8}
+
+.ot-keyboard-guide{
+  margin-top:12px;
+  padding:11px 14px;
+  border:1px solid #dbe7f4;
+  border-radius:10px;
+  background:#f8fbff;
+  color:#334155;
+  font-size:12px;
+  line-height:1.5;
+}
+.ot-keyboard-guide b{color:#0f172a}
+@media(max-width:900px){
+  .ot-table .name-col{width:190px !important;min-width:190px !important;max-width:190px !important}
+}
+
+
+/* ===== HIỂN THỊ ĐẦY ĐỦ BẢNG TĂNG CA TỪ NHÂN VIÊN ĐẾN TỔNG ===== */
+.ot-table-wrap,
+.table-wrap{
+  width:100%;
+  overflow-x:auto;
+  overflow-y:auto;
+}
+
+.ot-table{
+  width:100% !important;
+  min-width:0 !important;
+  table-layout:fixed !important;
+}
+
+.ot-table .name-col{
+  width:150px !important;
+  min-width:150px !important;
+  max-width:150px !important;
+}
+
+.ot-table th:not(.name-col):not(:last-child),
+.ot-table td:not(.name-col):not(:last-child){
+  width:auto !important;
+  min-width:36px !important;
+  max-width:none !important;
+  padding:4px 1px !important;
+  box-sizing:border-box;
+}
+
+.ot-table th:last-child,
+.ot-table td:last-child,
+.ot-table .ot-total-cell{
+  width:72px !important;
+  min-width:72px !important;
+  max-width:72px !important;
+  box-sizing:border-box;
+}
+
+.ot-table thead th:not(.name-col){
+  height:46px !important;
+  padding:4px 1px !important;
+  font-size:11px !important;
+  line-height:1.05 !important;
+  white-space:nowrap !important;
+}
+
+.ot-table tbody td:not(.name-col){
+  height:46px !important;
+  padding:4px 1px !important;
+}
+
+.ot-table .ot-cell{
+  width:100% !important;
+  min-width:0 !important;
+  max-width:none !important;
+  height:34px !important;
+  padding:0 1px !important;
+  font-size:11px !important;
+  font-weight:900;
+  box-sizing:border-box;
+}
+
+.ot-table .name-col{
+  font-size:12px !important;
+}
+
+@media (max-width:1100px){
+  .ot-table .name-col{
+    width:130px !important;
+    min-width:130px !important;
+    max-width:130px !important;
+  }
+  .ot-table th:last-child,
+  .ot-table td:last-child,
+  .ot-table .ot-total-cell{
+    width:62px !important;
+    min-width:62px !important;
+    max-width:62px !important;
+  }
+  .ot-table th:not(.name-col):not(:last-child),
+  .ot-table td:not(.name-col):not(:last-child){
+    min-width:34px !important;
+  }
+  .ot-table .ot-cell{
+    font-size:10px !important;
+  }
+}
+
+
+/* ===== CỘT NHÂN VIÊN HIỂN THỊ ĐẦY ĐỦ TÊN ===== */
+.ot-table .name-col{
+  width:220px !important;
+  min-width:220px !important;
+  max-width:220px !important;
+  white-space:normal !important;
+  overflow:visible !important;
+  text-overflow:clip !important;
+  padding:6px 8px !important;
+}
+
+.ot-table .name-col .employee-name,
+.ot-table .name-col strong,
+.ot-table .name-col b{
+  white-space:normal !important;
+  overflow:visible !important;
+  text-overflow:clip !important;
+  word-break:normal !important;
+  overflow-wrap:normal !important;
+}
+
+.ot-table .name-col > *{
+  max-width:none !important;
+}
+
+
+/* ===== NGÀY NGHỈ: TÔ ĐỎ TOÀN BỘ Ô ===== */
+.ot-table th.selected-rest-day,
+.ot-table td.selected-rest-day{
+  background:#ef4444 !important;
+  color:#ffffff !important;
+  border-color:#dc2626 !important;
+}
+
+.ot-table th.selected-rest-day{
+  font-weight:900 !important;
+}
+
+.ot-table td.selected-rest-day .ot-cell{
+  background:#ef4444 !important;
+  color:#ffffff !important;
+  border-color:#dc2626 !important;
+  box-shadow:none !important;
+}
+
+.ot-table td.selected-rest-day .ot-cell:focus{
+  outline:2px solid #991b1b !important;
+  outline-offset:-2px;
+}
+
+.ot-table td.selected-rest-day .ot-cell::selection{
+  background:#7f1d1d !important;
+  color:#ffffff !important;
+}
+
+
+/* ===== CHỦ NHẬT: MÀU ĐỎ GIỐNG NGÀY NGHỈ ===== */
+.ot-table th.sunday-col,
+.ot-table td.sunday-col{
+  background:#ef4444 !important;
+  color:#ffffff !important;
+  border-color:#dc2626 !important;
+}
+
+.ot-table td.sunday-col .ot-cell{
+  background:#ef4444 !important;
+  color:#ffffff !important;
+  border-color:#dc2626 !important;
+  box-shadow:none !important;
+}
+
+.ot-table td.sunday-col .ot-cell:focus{
+  outline:2px solid #991b1b !important;
+  outline-offset:-2px;
+}
+
+/* Nếu Chủ nhật đồng thời được chọn là ngày nghỉ vẫn giữ màu đỏ. */
+.ot-table th.sunday-col.selected-rest-day,
+.ot-table td.sunday-col.selected-rest-day,
+.ot-table td.sunday-col.selected-rest-day .ot-cell{
+  background:#ef4444 !important;
+  color:#ffffff !important;
+  border-color:#dc2626 !important;
+}
+
+
+/* ===== Ô NHẬP CHỦ NHẬT: TÔ ĐỎ TOÀN BỘ KỂ CẢ Ô INPUT RỖNG ===== */
+.ot-table td.sunday-col input.ot-cell,
+.ot-table td.sunday-col input.ot-cell.val-S,
+.ot-table td.sunday-col input.ot-cell.val-C,
+.ot-table td.sunday-col input.ot-cell.val-N,
+.ot-table td.sunday-col input.ot-cell[class*="val-"]{
+  background:#ef4444 !important;
+  color:#ffffff !important;
+  border-color:#dc2626 !important;
+  box-shadow:none !important;
+}
+
+.ot-table td.sunday-col input.ot-cell:focus{
+  background:#ef4444 !important;
+  color:#ffffff !important;
+  border-color:#991b1b !important;
+  outline:2px solid #991b1b !important;
+  outline-offset:-2px;
+}
+
+/* Ngày nghỉ được chọn: ô input bên trong cũng đỏ hoàn toàn. */
+.ot-table td.selected-rest-day input.ot-cell{
+  background:#ef4444 !important;
+  color:#ffffff !important;
+  border-color:#dc2626 !important;
+}
+
+
+/* ===== CHỦ NHẬT / NGÀY NGHỈ: ĐỎ ĐẬM GIỐNG MẪU ===== */
+.ot-table td.sunday-col .ot-cell,
+.ot-table td.selected-rest-day .ot-cell{
+  background:#ef4444 !important;
+  color:#111827 !important;
+  border:1px solid #dc2626 !important;
+  border-radius:7px !important;
+  box-shadow:none !important;
+}
+
+.ot-table td.sunday-col,
+.ot-table td.selected-rest-day{
+  background:#ef4444 !important;
+  border-color:#dc2626 !important;
+}
+
+.ot-table th.sunday-col,
+.ot-table th.selected-rest-day{
+  background:#ef4444 !important;
+  color:#b91c1c !important;
+  border-color:#dc2626 !important;
+}
+
+.ot-table td.sunday-col .ot-cell:focus,
+.ot-table td.selected-rest-day .ot-cell:focus{
+  background:#ef4444 !important;
+  border-color:#b91c1c !important;
+  outline:1px solid #b91c1c !important;
+  outline-offset:-1px;
+}
+
+
+/* ===== CHỦ NHẬT: MÀU TRẮNG ===== */
+.ot-table th.sunday-col,
+.ot-table td.sunday-col{
+  background:#ffffff !important;
+  color:#111827 !important;
+  border-color:#cbd5e1 !important;
+}
+
+.ot-table td.sunday-col .ot-cell{
+  background:#ffffff !important;
+  color:#111827 !important;
+  border-color:#cbd5e1 !important;
+  box-shadow:none !important;
+}
+
+.ot-table td.sunday-col .ot-cell:focus{
+  background:#ffffff !important;
+  color:#111827 !important;
+  border-color:#94a3b8 !important;
+  outline:2px solid #94a3b8 !important;
+  outline-offset:-2px;
+}
+
+
+/* ===== NGÀY NGHỈ ĐƯỢC CHỌN: NỀN TRẮNG + VIỀN ĐỎ ===== */
+.ot-table td.selected-rest-day,
+.ot-table th.selected-rest-day{
+  background:#ffffff !important;
+  color:#111827 !important;
+  border-color:#ff3b30 !important;
+}
+
+.ot-table td.selected-rest-day .ot-cell,
+.ot-table td.selected-rest-day input.ot-cell{
+  background:#ffffff !important;
+  color:#111827 !important;
+  border:1.5px solid #ff3b30 !important;
+  border-radius:7px !important;
+  box-shadow:none !important;
+}
+
+.ot-table td.selected-rest-day .ot-cell:focus,
+.ot-table td.selected-rest-day input.ot-cell:focus{
+  background:#ffffff !important;
+  color:#111827 !important;
+  border:1.5px solid #ff3b30 !important;
+  outline:1px solid #ff3b30 !important;
+  outline-offset:-1px !important;
+}
+
+/* Chủ nhật vẫn giữ màu trắng bình thường, không biến thành ngày nghỉ. */
+.ot-table th.sunday-col,
+.ot-table td.sunday-col{
+  background:#ffffff !important;
+}
+
+
+/* ===== DÒNG KẺ NGÀY NGHỈ: ĐỒNG MÀU ĐỎ ===== */
+.ot-table td.selected-rest-day{
+  border-top-color:#ff3b30 !important;
+  border-right-color:#ff3b30 !important;
+  border-bottom-color:#ff3b30 !important;
+  border-left-color:#ff3b30 !important;
+}
+
+.ot-table td.selected-rest-day::before,
+.ot-table td.selected-rest-day::after{
+  border-color:#ff3b30 !important;
+  background:#ff3b30 !important;
+}
+
+.ot-table td.selected-rest-day .ot-cell,
+.ot-table td.selected-rest-day input.ot-cell{
+  border-color:#ff3b30 !important;
+}
+
+/* Đường kẻ ngang của hàng ngày nghỉ cũng cùng màu đỏ. */
+.ot-table tr:has(td.selected-rest-day) > td{
+  border-bottom-color:#ff3b30 !important;
+}
+
+
+/* ===== CHỦ NHẬT + NGÀY NGHỈ ĐƯỢC CHỌN: GIỐNG MÀU N ===== */
+/* Màu N hiện tại của hệ thống: đỏ #ef4444, chữ trắng. */
+.ot-table th.sunday-col,
+.ot-table td.sunday-col,
+.ot-table th.selected-rest-day,
+.ot-table td.selected-rest-day{
+  background:#ef4444 !important;
+  color:#ffffff !important;
+  border-color:#dc2626 !important;
+}
+
+.ot-table td.sunday-col .ot-cell,
+.ot-table td.selected-rest-day .ot-cell,
+.ot-table td.sunday-col input.ot-cell,
+.ot-table td.selected-rest-day input.ot-cell{
+  background:#ef4444 !important;
+  color:#ffffff !important;
+  border-color:#dc2626 !important;
+  box-shadow:none !important;
+}
+
+/* Giữ màu đỏ cả khi ô đang trống hoặc đang focus. */
+.ot-table td.sunday-col .ot-cell:focus,
+.ot-table td.selected-rest-day .ot-cell:focus{
+  background:#ef4444 !important;
+  color:#ffffff !important;
+  border-color:#dc2626 !important;
+  outline:2px solid #b91c1c !important;
+  outline-offset:-2px !important;
+}
+
+/* Dòng kẻ của cột/ngày nghỉ cũng cùng màu đỏ. */
+.ot-table td.selected-rest-day,
+.ot-table tr:has(td.selected-rest-day) > td{
+  border-bottom-color:#dc2626 !important;
+}
+
+
+/* ===== CÁC TAG/BUTTON THEO DÕI TĂNG CA: TỶ LỆ 4:2 ===== */
+.ot-toolbar{
+  align-items:center !important;
+  gap:6px !important;
+}
+
+.ot-toolbar > button{
+  width:120px !important;
+  height:60px !important;
+  min-width:120px !important;
+  min-height:60px !important;
+  max-width:120px !important;
+  max-height:60px !important;
+  padding:6px 8px !important;
+  box-sizing:border-box !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  text-align:center !important;
+  white-space:normal !important;
+  line-height:1.15 !important;
+  font-size:12px !important;
+  font-weight:800 !important;
+  border-radius:9px !important;
+}
+
+.ot-toolbar .ot-filter-btn{
+  width:120px !important;
+  min-width:120px !important;
+  max-width:120px !important;
+}
+
+.ot-toolbar .planned-ot-btn{
+  width:120px !important;
+  min-width:120px !important;
+  max-width:120px !important;
+}
+
+/* Nút +/- nhỏ vẫn giữ dạng nút vuông, không ép theo tag 4:2. */
+.ot-toolbar .icon-btn{
+  width:44px !important;
+  height:44px !important;
+  min-width:44px !important;
+  max-width:44px !important;
+  min-height:44px !important;
+  max-height:44px !important;
+  padding:0 !important;
+}
+
+/* Trên màn hình nhỏ cho phép hàng nút xuống dòng. */
+@media(max-width:900px){
+  .ot-toolbar{
+    flex-wrap:wrap !important;
+  }
+}
+
+
+/* ===== ĐƯỜNG KẺ KHI CHỌN NGÀY NGHỈ: ĐỒNG MÀU ĐƯỜNG KẺ BÌNH THƯỜNG ===== */
+.ot-table td.selected-rest-day{
+  border-top-color:#d9e2ec !important;
+  border-right-color:#d9e2ec !important;
+  border-bottom-color:#d9e2ec !important;
+  border-left-color:#d9e2ec !important;
+}
+
+/* Các đường kẻ ngang/dọc của bảng tại ngày nghỉ giữ cùng màu xám xanh nhạt. */
+.ot-table tr:has(td.selected-rest-day) > td{
+  border-bottom-color:#d9e2ec !important;
+}
+
+.ot-table td.selected-rest-day + td{
+  border-left-color:#d9e2ec !important;
+}
+
+.ot-table th.selected-rest-day{
+  border-color:#d9e2ec !important;
+}
+
+
+/* ===== BẢNG DỰ KIẾN TĂNG CA: MÀU NGÀY GIỐNG BẢNG THEO DÕI ===== */
+.planned-ot-table th.sunday-col,
+.planned-ot-table td.sunday-col,
+.planned-ot-table th.selected-rest-day,
+.planned-ot-table td.selected-rest-day{
+  background:#ef4444 !important;
+  color:#ffffff !important;
+  border-color:#dc2626 !important;
+}
+
+.planned-ot-table td.sunday-col .planned-grid-cell,
+.planned-ot-table td.selected-rest-day .planned-grid-cell{
+  background:#ef4444 !important;
+  color:#ffffff !important;
+  border-color:#dc2626 !important;
+  box-shadow:none !important;
+}
+
+.planned-ot-table td.sunday-col .planned-grid-cell:focus,
+.planned-ot-table td.selected-rest-day .planned-grid-cell:focus{
+  background:#ef4444 !important;
+  color:#ffffff !important;
+  border-color:#b91c1c !important;
+  outline:2px solid #b91c1c !important;
+  outline-offset:-2px !important;
+}
+
+/* ===== BẢNG DỰ KIẾN: N/C/S CÓ MÀU GIỐNG BẢNG THEO DÕI ===== */
+.planned-grid-cell.planned-val-S{
+  background:#fef08a !important;
+  color:#111827 !important;
+  border-color:#facc15 !important;
+  font-weight:900 !important;
+}
+.planned-grid-cell.planned-val-C{
+  background:#fdba74 !important;
+  color:#111827 !important;
+  border-color:#fb923c !important;
+  font-weight:900 !important;
+}
+.planned-grid-cell.planned-val-N{
+  background:#ef4444 !important;
+  color:#ffffff !important;
+  border-color:#dc2626 !important;
+  font-weight:900 !important;
+}
+.planned-ot-table td.sunday-col .planned-grid-cell,
+.planned-ot-table td.selected-rest-day .planned-grid-cell{
+  background:#ef4444 !important;
+  color:#ffffff !important;
+  border-color:#dc2626 !important;
+}
+
+
+/* ===== BẢNG DỰ KIẾN TĂNG CA: NHẬP TRỰC TIẾP VÀO Ô NGOÀI ===== */
+/* Bỏ hoàn toàn ô bo viền bên trong input. */
+.planned-ot-table td{
+  padding:0 !important;
+  width:44px !important;
+  min-width:44px !important;
+  height:42px !important;
+  box-sizing:border-box !important;
+  text-align:center !important;
+  vertical-align:middle !important;
+}
+
+.planned-grid-cell{
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  min-width:0 !important;
+  min-height:0 !important;
+  margin:0 !important;
+  padding:0 !important;
+  border:0 !important;
+  border-radius:0 !important;
+  outline:none !important;
+  box-shadow:none !important;
+  background:transparent !important;
+  font-size:12px !important;
+  font-weight:900 !important;
+  text-align:center !important;
+  box-sizing:border-box !important;
+}
+
+/* Màu được tô trực tiếp lên ô ngoài khi nhập N/C/S. */
+.planned-ot-table td:has(> .planned-grid-cell.planned-val-N){
+  background:#ef4444 !important;
+  color:#ffffff !important;
+  border-color:#dc2626 !important;
+}
+.planned-ot-table td:has(> .planned-grid-cell.planned-val-C){
+  background:#fdba74 !important;
+  color:#111827 !important;
+  border-color:#fb923c !important;
+}
+.planned-ot-table td:has(> .planned-grid-cell.planned-val-S){
+  background:#fef08a !important;
+  color:#111827 !important;
+  border-color:#facc15 !important;
+}
+.planned-ot-table td:has(> .planned-grid-cell.planned-zero){
+  background:#dbeafe !important;
+  color:#1d4ed8 !important;
+  border-color:#2563eb !important;
+}
+
+/* Chủ nhật và ngày nghỉ được chọn vẫn đỏ toàn bộ ô ngoài. */
+.planned-ot-table td.sunday-col,
+.planned-ot-table td.selected-rest-day{
+  background:#ef4444 !important;
+  color:#ffffff !important;
+  border-color:#dc2626 !important;
+}
+
+.planned-ot-table td.sunday-col .planned-grid-cell,
+.planned-ot-table td.selected-rest-day .planned-grid-cell{
+  background:transparent !important;
+  color:inherit !important;
+  border:0 !important;
+  box-shadow:none !important;
+}
+
+.planned-grid-cell:focus{
+  outline:none !important;
+  border:0 !important;
+  box-shadow:none !important;
+}
+
+/* ===== DỰ KIẾN TĂNG CA: CHO PHÉP KÝ TỰ ĐẶC BIỆT ===== */
+.planned-grid-cell{
+  font-variant-numeric:normal !important;
+  overflow:visible !important;
+  text-overflow:clip !important;
+  white-space:nowrap !important;
+}
+
+
+/* ===== DỰ KIẾN TĂNG CA: SỐ 0 SAU KHI LƯU HIỂN THỊ MÀU XANH ===== */
+.planned-ot-table td:has(> .planned-grid-cell.planned-zero){
+  background:#dbeafe !important;
+  color:#2563eb !important;
+  border-color:#2563eb !important;
+}
+
+.planned-ot-table td:has(> .planned-grid-cell.planned-zero) .planned-grid-cell,
+.planned-ot-table .planned-grid-cell.planned-zero{
+  background:#dbeafe !important;
+  color:#2563eb !important;
+  border:0 !important;
+  font-weight:900 !important;
+}
+
+
+/* ===== BẢNG THEO DÕI TĂNG CA: SỐ 0 GIỐNG BẢNG DỰ KIẾN ===== */
+.ot-table td:has(> .ot-cell.val-0),
+.ot-table td:has(> input.ot-cell.val-0){
+  background:#dbeafe !important;
+  color:#2563eb !important;
+  border-color:#2563eb !important;
+}
+
+.ot-table .ot-cell.val-0,
+.ot-table input.ot-cell.val-0{
+  background:#dbeafe !important;
+  color:#2563eb !important;
+  border-color:#2563eb !important;
+  font-weight:900 !important;
+}
+
+
+/* ===== THEO DÕI TĂNG CA: SỐ 0 GIỐNG HÌNH MẪU ===== */
+.ot-table .ot-cell.val-0,
+.ot-table input.ot-cell.val-0{
+  background:#dbeafe !important;
+  color:#2563eb !important;
+  border:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  font-weight:900 !important;
+  text-align:center !important;
+}
+
+.ot-table td:has(> .ot-cell.val-0){
+  background:#dbeafe !important;
+  color:#2563eb !important;
+  border-color:#cbd5e1 !important;
+}
+
+.ot-table .ot-cell.val-0:focus{
+  background:#dbeafe !important;
+  color:#2563eb !important;
+  border:0 !important;
+  outline:none !important;
+  box-shadow:none !important;
+}
+
+
+/* ===== THEO DÕI TĂNG CA: SỐ 0 MÀU ĐỎ ===== */
+.ot-table .ot-cell.val-0,
+.ot-table input.ot-cell.val-0{
+  background:#fee2e2 !important;
+  color:#ef4444 !important;
+  border:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  font-weight:900 !important;
+  text-align:center !important;
+}
+
+.ot-table td:has(> .ot-cell.val-0){
+  background:#fee2e2 !important;
+  color:#ef4444 !important;
+  border-color:#fecaca !important;
+}
+
+.ot-table .ot-cell.val-0:focus{
+  background:#fee2e2 !important;
+  color:#ef4444 !important;
+  border:0 !important;
+  outline:none !important;
+  box-shadow:none !important;
+}
+
+/* ===== Ô NGÀY + NÚT ĐỒNG BỘ NGÀY HIỆN TẠI ===== */
+.ot-date-sync-wrap{
+  display:inline-flex !important;
+  align-items:center !important;
+  gap:6px !important;
+  height:40px !important;
+}
+
+.ot-date-sync-wrap #otDate{
+  margin:0 !important;
+  height:40px !important;
+  box-sizing:border-box !important;
+}
+
+.ot-sync-date-btn{
+  width:40px !important;
+  height:40px !important;
+  min-width:40px !important;
+  padding:0 !important;
+  border:1px solid #cbd5e1 !important;
+  border-radius:8px !important;
+  background:#ffffff !important;
+  color:#2563eb !important;
+  font-size:24px !important;
+  font-weight:900 !important;
+  line-height:1 !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  cursor:pointer !important;
+  box-shadow:none !important;
+}
+
+.ot-sync-date-btn:hover{
+  background:#eff6ff !important;
+  border-color:#2563eb !important;
+}
+
+.ot-sync-date-btn:active{
+  transform:scale(.96);
+}
+
+/* ===== 0 VÀ S0.5 MÀU ĐỎ ===== */
+.ot-table .ot-cell.val-0,
+.ot-table input.ot-cell.val-0,
+.ot-table .ot-cell.val-S05,
+.ot-table input.ot-cell.val-S05{
+  background:#fee2e2 !important;
+  color:#ef4444 !important;
+  border-color:#ef4444 !important;
+  font-weight:900 !important;
+}
+
+.ot-table td:has(> .ot-cell.val-0),
+.ot-table td:has(> .ot-cell.val-S05){
+  background:#fee2e2 !important;
+  color:#ef4444 !important;
+  border-color:#ef4444 !important;
+}
+
+.planned-ot-table .planned-grid-cell.planned-val-S05{
+  background:#fee2e2 !important;
+  color:#ef4444 !important;
+  border-color:#ef4444 !important;
+  font-weight:900 !important;
+}
+
+.planned-ot-table td:has(> .planned-grid-cell.planned-val-S05){
+  background:#fee2e2 !important;
+  color:#ef4444 !important;
+  border-color:#ef4444 !important;
+}
+
+/* ===== SỐ 0 MÀU XANH ===== */
+.ot-table .ot-cell.val-0,
+.ot-table input.ot-cell.val-0{
+  background:#dbeafe !important;
+  color:#2563eb !important;
+  border-color:#2563eb !important;
+  font-weight:900 !important;
+}
+.ot-table td:has(> .ot-cell.val-0){
+  background:#dbeafe !important;
+  color:#2563eb !important;
+  border-color:#2563eb !important;
+}
+.planned-ot-table .planned-grid-cell.planned-zero{
+  background:#dbeafe !important;
+  color:#2563eb !important;
+  border-color:#2563eb !important;
+  font-weight:900 !important;
+}
+.planned-ot-table td:has(> .planned-grid-cell.planned-zero){
+  background:#dbeafe !important;
+  color:#2563eb !important;
+  border-color:#2563eb !important;
+}
+
+/* ===== Ô TÌM KIẾM: THU NHỎ CHIỀU NGANG 1/2 ===== */
+input[placeholder*="Tìm theo mã"],
+input[placeholder*="tên, SĐT, CCCD, khu vực"]{
+  width:50% !important;
+  max-width:50% !important;
+  box-sizing:border-box !important;
+}
+
+/* ===== BIỂU TƯỢNG LỌC CẠNH Ô NGÀY ===== */
+.ot-filter-date-btn{
+  width:40px !important;
+  height:40px !important;
+  min-width:40px !important;
+  padding:0 !important;
+  border:1px solid #cbd5e1 !important;
+  border-radius:8px !important;
+  background:#ffffff !important;
+  color:#2563eb !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  cursor:pointer !important;
+  box-shadow:none !important;
+}
+
+.ot-filter-date-btn svg{
+  width:19px !important;
+  height:19px !important;
+  fill:none !important;
+  stroke:currentColor !important;
+  stroke-width:2 !important;
+  stroke-linejoin:round !important;
+  stroke-linecap:round !important;
+}
+
+.ot-filter-date-btn:hover{
+  background:#eff6ff !important;
+  border-color:#2563eb !important;
+}
+
+/* ===== LỌC KÝ TỰ TĂNG CA ===== */
+.ot-value-filter-modal{
+  width:min(620px,94vw) !important;
+  max-width:620px !important;
+}
+.ot-filter-note{
+  padding:10px 0 14px;
+  color:#64748b;
+  font-size:13px;
+}
+.ot-filter-grid{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:8px;
+  max-height:360px;
+  overflow:auto;
+  padding:4px;
+}
+.ot-filter-option{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  min-height:38px;
+  padding:6px 8px;
+  border:1px solid #dbe3ee;
+  border-radius:8px;
+  background:#fff;
+  cursor:pointer;
+  box-sizing:border-box;
+}
+.ot-filter-option:hover{
+  background:#eff6ff;
+  border-color:#93c5fd;
+}
+.ot-filter-option input{
+  width:16px !important;
+  height:16px !important;
+  margin:0 !important;
+  padding:0 !important;
+}
+.ot-filter-option span{
+  font-weight:800;
+  color:#0f172a;
+}
+.ot-cell.filtered-match{
+  background:#bfdbfe !important;
+  color:#2563eb !important;
+  border-color:#2563eb !important;
+  box-shadow:inset 0 0 0 1px #2563eb !important;
+  font-weight:900 !important;
+  position:relative;
+  z-index:2;
+}
+
+/* ===== LỌC TĂNG CA: NÚT PHẢN HỒI + MENU HOẠT ĐỘNG ===== */
+.ot-filter-date-btn{
+  position:relative !important;
+  z-index:1001 !important;
+  cursor:pointer !important;
+  pointer-events:auto !important;
+}
+.ot-filter-date-btn svg{
+  pointer-events:none !important;
+}
+.ot-value-filter-menu{
+  position:fixed !important;
+  z-index:99999 !important;
+  width:430px;
+  max-width:calc(100vw - 16px);
+  max-height:520px;
+  overflow:auto;
+  padding:12px;
+  box-sizing:border-box;
+  background:#fff;
+  border:1px solid #cbd5e1;
+  border-radius:10px;
+  box-shadow:0 12px 30px rgba(15,23,42,.18);
+}
+.ot-value-filter-title{
+  font-size:15px;
+  font-weight:900;
+  color:#0f172a;
+  margin:2px 0 10px;
+}
+.ot-value-filter-menu .ot-filter-grid{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:7px;
+  max-height:330px;
+  overflow:auto;
+}
+.ot-value-filter-menu .ot-filter-option{
+  min-height:36px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:5px 7px;
+  box-sizing:border-box;
+  border:1px solid #dbe3ee;
+  border-radius:7px;
+  background:#fff;
+  cursor:pointer;
+}
+.ot-value-filter-menu .ot-filter-option:hover{
+  background:#eff6ff;
+  border-color:#60a5fa;
+}
+.ot-value-filter-menu .ot-filter-option input{
+  width:15px !important;
+  height:15px !important;
+  margin:0 !important;
+  pointer-events:auto !important;
+}
+.ot-value-filter-menu .ot-filter-option span{
+  font-weight:800;
+  color:#0f172a;
+}
+.ot-filter-menu-actions{
+  display:flex;
+  justify-content:flex-end;
+  gap:8px;
+  margin-top:10px;
+  padding-top:10px;
+  border-top:1px solid #e2e8f0;
+}
+
+/* ===== LỌC: CHỈ TÔ PHẦN BÊN TRONG Ô NHẬP ===== */
+.ot-table td:has(> .ot-cell.filtered-match){
+  background:inherit !important;
+  color:inherit !important;
+  border-color:inherit !important;
+}
+
+.ot-table .ot-cell.filtered-match,
+.ot-table input.ot-cell.filtered-match{
+  background:#bfdbfe !important;
+  color:#2563eb !important;
+  border:1px solid #2563eb !important;
+  box-shadow:none !important;
+  font-weight:900 !important;
+  border-radius:7px !important;
+}
+
+/* =========================================================
+   BẢNG THEO DÕI TĂNG CA - BẢNG MÀU GỌN, ĐỒNG NHẤT
+   ========================================================= */
+
+/* Ô nhập mặc định: trắng, chữ tối */
+.ot-table .ot-cell,
+.ot-table input.ot-cell{
+  background:#fff !important;
+  color:#0f172a !important;
+  border:1px solid #cbd5e1 !important;
+  box-shadow:none !important;
+  font-weight:700 !important;
+}
+
+/* Chủ nhật: chỉ nền đỏ rất nhạt, không đỏ toàn bộ ô nhập */
+.ot-table .sunday-col,
+.ot-table td.sunday-col{
+  background:#fff1f2 !important;
+  border-color:#fecdd3 !important;
+}
+.ot-table .sunday-col .ot-cell,
+.ot-table td.sunday-col .ot-cell{
+  background:#fff7f7 !important;
+  color:#0f172a !important;
+  border-color:#fecdd3 !important;
+}
+
+/* Ngày nghỉ được chọn: cùng tông với Chủ nhật */
+.ot-table td.selected-rest-day,
+.ot-table .selected-rest-day{
+  background:#fff1f2 !important;
+  border-color:#fecdd3 !important;
+}
+.ot-table td.selected-rest-day .ot-cell,
+.ot-table .selected-rest-day .ot-cell{
+  background:#fff7f7 !important;
+  color:#dc2626 !important;
+  border-color:#ef4444 !important;
+}
+
+/* 0: chỉ chữ xanh, không tô cả ô */
+.ot-table .ot-cell.val-0,
+.ot-table input.ot-cell.val-0{
+  background:#fff !important;
+  color:#2563eb !important;
+  border-color:#cbd5e1 !important;
+}
+
+/* S: vàng */
+.ot-table .ot-cell.val-S,
+.ot-table input.ot-cell.val-S{
+  background:#fef08a !important;
+  color:#111827 !important;
+  border-color:#eab308 !important;
+}
+
+/* C: cam */
+.ot-table .ot-cell.val-C,
+.ot-table input.ot-cell.val-C{
+  background:#fed7aa !important;
+  color:#9a3412 !important;
+  border-color:#f97316 !important;
+}
+
+/* N: đỏ nhạt */
+.ot-table .ot-cell.val-N,
+.ot-table input.ot-cell.val-N{
+  background:#fee2e2 !important;
+  color:#dc2626 !important;
+  border-color:#ef4444 !important;
+}
+
+/* Các số tăng ca 0.5 - 5: nền trắng, chữ xanh đậm */
+.ot-table .ot-cell[class*="val-"],
+.ot-table input.ot-cell[class*="val-"]{
+  font-weight:800 !important;
+}
+.ot-table .ot-cell.val-05,
+.ot-table .ot-cell.val-1,
+.ot-table .ot-cell.val-15,
+.ot-table .ot-cell.val-2,
+.ot-table .ot-cell.val-25,
+.ot-table .ot-cell.val-3,
+.ot-table .ot-cell.val-35,
+.ot-table .ot-cell.val-4,
+.ot-table .ot-cell.val-45,
+.ot-table .ot-cell.val-5,
+.ot-table input.ot-cell.val-05,
+.ot-table input.ot-cell.val-1,
+.ot-table input.ot-cell.val-15,
+.ot-table input.ot-cell.val-2,
+.ot-table input.ot-cell.val-25,
+.ot-table input.ot-cell.val-3,
+.ot-table input.ot-cell.val-35,
+.ot-table input.ot-cell.val-4,
+.ot-table input.ot-cell.val-45,
+.ot-table input.ot-cell.val-5{
+  background:#fff !important;
+  color:#1d4ed8 !important;
+  border-color:#cbd5e1 !important;
+}
+
+/* Khi đang lọc: chỉ phần ô nhập được tô xanh */
+.ot-table td:has(> .ot-cell.filtered-match){
+  background:inherit !important;
+  border-color:inherit !important;
+}
+.ot-table .ot-cell.filtered-match,
+.ot-table input.ot-cell.filtered-match{
+  background:#dbeafe !important;
+  color:#1d4ed8 !important;
+  border:1px solid #60a5fa !important;
+  box-shadow:none !important;
+}
+
+/* S0.5...S4 vẫn giữ màu vàng khi không lọc */
+.ot-table .ot-cell.val-S05,
+.ot-table .ot-cell.val-S1,
+.ot-table .ot-cell.val-S15,
+.ot-table .ot-cell.val-S2,
+.ot-table .ot-cell.val-S25,
+.ot-table .ot-cell.val-S3,
+.ot-table .ot-cell.val-S35,
+.ot-table .ot-cell.val-S4,
+.ot-table input.ot-cell.val-S05,
+.ot-table input.ot-cell.val-S1,
+.ot-table input.ot-cell.val-S15,
+.ot-table input.ot-cell.val-S2,
+.ot-table input.ot-cell.val-S25,
+.ot-table input.ot-cell.val-S3,
+.ot-table input.ot-cell.val-S35,
+.ot-table input.ot-cell.val-S4{
+  background:#fef08a !important;
+  color:#111827 !important;
+  border-color:#eab308 !important;
+}
+
+/* Nếu lọc trúng S/C/N thì màu lọc xanh được ưu tiên */
+.ot-table .ot-cell.filtered-match.val-S,
+.ot-table .ot-cell.filtered-match.val-C,
+.ot-table .ot-cell.filtered-match.val-N,
+.ot-table .ot-cell.filtered-match[class*="val-S"]{
+  background:#dbeafe !important;
+  color:#1d4ed8 !important;
+  border-color:#60a5fa !important;
+}
+
+/* =========================================================
+   XÓA TOÀN BỘ MÀU Ô TĂNG CA - TẤT CẢ Ô MÀU TRẮNG
+   ========================================================= */
+.ot-table td,
+.ot-table th,
+.ot-table .sunday-col,
+.ot-table td.sunday-col,
+.ot-table td.selected-rest-day,
+.ot-table .selected-rest-day,
+.ot-table .ot-cell,
+.ot-table input.ot-cell,
+.ot-table .ot-cell.filtered-match,
+.ot-table input.ot-cell.filtered-match,
+.ot-table .ot-cell[class*="val-"],
+.ot-table input.ot-cell[class*="val-"]{
+  background:#fff !important;
+  color:#111827 !important;
+}
+
+/* Giữ viền ô thống nhất */
+.ot-table .ot-cell,
+.ot-table input.ot-cell{
+  border:1px solid #cbd5e1 !important;
+  box-shadow:none !important;
+}
+
+/* Không tô xanh khi lọc */
+.ot-table .ot-cell.filtered-match,
+.ot-table input.ot-cell.filtered-match{
+  background:#fff !important;
+  color:#111827 !important;
+  border:1px solid #cbd5e1 !important;
+}
+
+/* Chủ nhật và ngày nghỉ cũng giữ nền trắng */
+.ot-table .sunday-col,
+.ot-table td.sunday-col,
+.ot-table td.selected-rest-day,
+.ot-table .selected-rest-day{
+  background:#fff !important;
+  border-color:#cbd5e1 !important;
+}
+
+/* =========================================================
+   BẢNG DKTC: THÊM Ô VUÔNG NHỎ BÊN TRONG Ô LỚN
+   Kích thước đồng bộ với ô nhập của bảng Theo dõi tăng ca
+   ========================================================= */
+.planned-ot-table td:not(.planned-name-col):not(.planned-total-col){
+  height:46px !important;
+  min-width:39px !important;
+  width:39px !important;
+  padding:5px 2px !important;
+  box-sizing:border-box !important;
+  background:#fff !important;
+}
+
+.planned-ot-table .planned-grid-cell{
+  display:block !important;
+  width:34px !important;
+  min-width:34px !important;
+  max-width:34px !important;
+  height:34px !important;
+  min-height:34px !important;
+  max-height:34px !important;
+  margin:0 auto !important;
+  padding:0 !important;
+  box-sizing:border-box !important;
+  border:1px solid #cbd5e1 !important;
+  border-radius:6px !important;
+  background:#fff !important;
+  color:#111827 !important;
+  text-align:center !important;
+  line-height:32px !important;
+  font-size:11px !important;
+  font-weight:900 !important;
+  outline:none !important;
+  box-shadow:none !important;
+}
+
+.planned-ot-table .planned-grid-cell:focus{
+  background:#fff !important;
+  color:#111827 !important;
+  border:1px solid #2563eb !important;
+  box-shadow:0 0 0 1px #2563eb !important;
+}
+
+.planned-ot-table .planned-grid-cell.planned-zero{
+  background:#fff !important;
+  color:#111827 !important;
+  border:1px solid #cbd5e1 !important;
+}
+
+/* Cột tổng không tạo ô nhập nhỏ */
+.planned-ot-table td.planned-total-col{
+  width:72px !important;
+  min-width:72px !important;
+  background:#fff !important;
+}
+
+/* =========================================================
+   DKTC: Ô CHỦ NHẬT CŨNG CÓ Ô VUÔNG NHỎ GIỐNG CÁC NGÀY KHÁC
+   ========================================================= */
+.planned-ot-table td.sunday-col,
+.planned-ot-table th.sunday-col,
+.planned-ot-table .sunday-col{
+  background:#fff !important;
+}
+
+.planned-ot-table td.sunday-col .planned-grid-cell,
+.planned-ot-table .sunday-col .planned-grid-cell{
+  display:block !important;
+  width:34px !important;
+  min-width:34px !important;
+  max-width:34px !important;
+  height:34px !important;
+  min-height:34px !important;
+  max-height:34px !important;
+  margin:0 auto !important;
+  padding:0 !important;
+  box-sizing:border-box !important;
+  background:#fff !important;
+  color:#111827 !important;
+  border:1px solid #cbd5e1 !important;
+  border-radius:6px !important;
+  line-height:32px !important;
+}
+
+/* =========================================================
+   DKTC: KHÔI PHỤC HIỂN THỊ NGÀY + THỨ (CN) Ở ĐẦU CỘT
+   Ô vuông nhỏ chỉ nằm trong phần dữ liệu bên dưới.
+   ========================================================= */
+.planned-ot-table thead th{
+  height:46px !important;
+  min-height:46px !important;
+  padding:6px 3px !important;
+  box-sizing:border-box !important;
+  background:#fff !important;
+  color:#0f172a !important;
+  border:1px solid #dbe3ee !important;
+  text-align:center !important;
+  vertical-align:middle !important;
+  font-size:12px !important;
+  font-weight:900 !important;
+  line-height:15px !important;
+  position:relative !important;
+  z-index:3 !important;
+}
+
+.planned-ot-table thead th span{
+  display:inline-block !important;
+  color:#0f172a !important;
+  font-size:11px !important;
+  font-weight:900 !important;
+  line-height:14px !important;
+  visibility:visible !important;
+  opacity:1 !important;
+}
+
+.planned-ot-table thead th.sunday-col,
+.planned-ot-table thead th.selected-rest-day{
+  background:#fff !important;
+  color:#0f172a !important;
+  border-color:#dbe3ee !important;
+}
+
+.planned-ot-table thead th.sunday-col span,
+.planned-ot-table thead th.selected-rest-day span{
+  color:#0f172a !important;
+}
+
+/* Không cho ô nhập nhỏ che/đè phần tiêu đề ngày */
+.planned-ot-table thead .planned-grid-cell{
+  display:none !important;
+}
+
+/* DKTC: ẩn hoàn toàn biểu tượng lọc trong bảng Dự kiến tăng ca */
+.planned-ot-table .ot-filter-date-btn,
+.planned-ot-table + .ot-filter-date-btn,
+.planned-toolbar .ot-filter-date-btn{
+  display:none !important;
+}
+
+/* Số 0: đường viền đồng màu với các ô bên cạnh */
+.ot-table .ot-cell.val-0,
+.ot-table input.ot-cell.val-0,
+.ot-table .ot-cell.filtered-match,
+.ot-table input.ot-cell.filtered-match{
+  border-color:#cbd5e1 !important;
+  box-shadow:none !important;
+}
+
+/* =========================================================
+   TOÀN BỘ ĐƯỜNG KẺ BẢNG DKTC - DÙNG CHUNG 1 MÀU
+   Không còn đường đỏ/xanh khác nhau.
+   ========================================================= */
+.planned-ot-table,
+.planned-ot-table th,
+.planned-ot-table td,
+.planned-ot-table tr,
+.planned-ot-table .planned-grid-cell,
+.planned-ot-table input.planned-grid-cell{
+  border-color:#cbd5e1 !important;
+}
+
+/* Ô nhập bên trong cũng dùng đúng màu đường kẻ chung */
+.planned-ot-table .planned-grid-cell,
+.planned-ot-table input.planned-grid-cell{
+  border:1px solid #cbd5e1 !important;
+  box-shadow:none !important;
+}
+
+/* Chủ nhật/ngày đặc biệt không được đổi màu đường kẻ */
+.planned-ot-table .sunday-col,
+.planned-ot-table td.sunday-col,
+.planned-ot-table th.sunday-col,
+.planned-ot-table .selected-rest-day,
+.planned-ot-table td.selected-rest-day{
+  border-color:#cbd5e1 !important;
+}
+
+/* =========================================================
+   KHI NHẬP 0: ĐƯỜNG KẺ/VIỀN DÙNG ĐÚNG MÀU MẪU #CBD5E1
+   ========================================================= */
+.ot-table td:has(.ot-cell.val-0),
+.ot-table td:has(input.ot-cell.val-0),
+.ot-table .ot-cell.val-0,
+.ot-table input.ot-cell.val-0{
+  border-color:#cbd5e1 !important;
+  box-shadow:none !important;
+}
+
+/* Không để màu trạng thái 0 làm đổi đường kẻ của ô lớn */
+.ot-table td:has(.ot-cell.val-0){
+  background:#fff !important;
+  border-top-color:#cbd5e1 !important;
+  border-right-color:#cbd5e1 !important;
+  border-bottom-color:#cbd5e1 !important;
+  border-left-color:#cbd5e1 !important;
+}
+
+/* DKTC nếu nhập 0 cũng dùng cùng màu đường kẻ */
+.planned-ot-table td:has(.planned-grid-cell.val-0),
+.planned-ot-table td:has(input.planned-grid-cell.val-0),
+.planned-ot-table .planned-grid-cell.val-0,
+.planned-ot-table input.planned-grid-cell.val-0{
+  border-color:#cbd5e1 !important;
+  box-shadow:none !important;
+}
+
+/* =========================================================
+   ĐƯỜNG KẺ TRẠNG THÁI FOCUS/ACTIVE VỀ MÀU MẶC ĐỊNH
+   ========================================================= */
+.ot-table .ot-cell:focus,
+.ot-table input.ot-cell:focus,
+.ot-table .ot-cell:focus-visible,
+.ot-table input.ot-cell:focus-visible,
+.planned-ot-table .planned-grid-cell:focus,
+.planned-ot-table input.planned-grid-cell:focus,
+.planned-ot-table .planned-grid-cell:focus-visible,
+.planned-ot-table input.planned-grid-cell:focus-visible{
+  border-color:#cbd5e1 !important;
+  box-shadow:none !important;
+  outline:none !important;
+}
+
+/* =========================================================
+   DKTC - NGÀY CHỦ NHẬT: Ô NHỎ MÀU ĐỎ GIỐNG MẪU
+   ========================================================= */
+.planned-ot-table td.sunday-col,
+.planned-ot-table .sunday-col{
+  background:#fff !important;
+}
+
+.planned-ot-table td.sunday-col .planned-grid-cell,
+.planned-ot-table .sunday-col .planned-grid-cell,
+.planned-ot-table td.sunday-col input.planned-grid-cell,
+.planned-ot-table .sunday-col input.planned-grid-cell{
+  background:#ef4444 !important;
+  border:1px solid #b91c1c !important;
+  color:#fff !important;
+  border-radius:6px !important;
+  box-shadow:none !important;
+}
+
+/* Ô CN khi được focus vẫn giữ màu đỏ */
+.planned-ot-table td.sunday-col .planned-grid-cell:focus,
+.planned-ot-table .sunday-col .planned-grid-cell:focus,
+.planned-ot-table td.sunday-col input.planned-grid-cell:focus,
+.planned-ot-table .sunday-col input.planned-grid-cell:focus{
+  background:#ef4444 !important;
+  border:1px solid #b91c1c !important;
+  color:#fff !important;
+  box-shadow:none !important;
+  outline:none !important;
+}
+
+/* Tiêu đề CN giữ nền trắng, chỉ ô dữ liệu bên dưới màu đỏ */
+.planned-ot-table thead th.sunday-col{
+  background:#fff !important;
+  color:#111827 !important;
+  border-color:#cbd5e1 !important;
+}
+
+/* =========================================================
+   BẢNG THEO DÕI TĂNG CA - CỘT CHỦ NHẬT GIỐNG MẪU
+   Chỉ ô vuông nhập liệu bên trong màu đỏ, phần cột bên ngoài trắng.
+   ========================================================= */
+.ot-table td.sunday-col,
+.ot-table .sunday-col{
+  background:#fff !important;
+  border-color:#cbd5e1 !important;
+}
+
+/* Ô vuông bên trong cột CN */
+.ot-table td.sunday-col .ot-cell,
+.ot-table .sunday-col .ot-cell,
+.ot-table td.sunday-col input.ot-cell,
+.ot-table .sunday-col input.ot-cell{
+  background:#ef4444 !important;
+  border:1px solid #b91c1c !important;
+  color:#fff !important;
+  border-radius:6px !important;
+  box-shadow:none !important;
+}
+
+/* Khi rê chuột / focus vẫn giữ đúng màu đỏ */
+.ot-table td.sunday-col .ot-cell:hover,
+.ot-table .sunday-col .ot-cell:hover,
+.ot-table td.sunday-col .ot-cell:focus,
+.ot-table .sunday-col .ot-cell:focus,
+.ot-table td.sunday-col input.ot-cell:hover,
+.ot-table .sunday-col input.ot-cell:hover,
+.ot-table td.sunday-col input.ot-cell:focus,
+.ot-table .sunday-col input.ot-cell:focus{
+  background:#ef4444 !important;
+  border-color:#b91c1c !important;
+  color:#fff !important;
+  box-shadow:none !important;
+  outline:none !important;
+}
+
+/* Tiêu đề CN không tô đỏ */
+.ot-table thead th.sunday-col{
+  background:#fff !important;
+  color:#111827 !important;
+  border-color:#cbd5e1 !important;
+}
+
+/* =========================================================
+   SỐ 0 - THIẾT KẾ MỚI THEO MẪU
+   Xóa kiểu 0 cũ; 0 hiển thị như một nút xanh, chữ đỏ.
+   ========================================================= */
+.ot-table .ot-cell.val-0,
+.ot-table input.ot-cell.val-0,
+.planned-ot-table .planned-grid-cell.planned-zero,
+.planned-ot-table input.planned-grid-cell.planned-zero{
+  background:#5b9bd5 !important;
+  color:#ff0000 !important;
+  border:1px solid #4472a8 !important;
+  border-radius:14px !important;
+  box-shadow:none !important;
+  outline:none !important;
+  font-weight:900 !important;
+  font-size:18px !important;
+}
+
+.ot-table .ot-cell.val-0:focus,
+.ot-table input.ot-cell.val-0:focus,
+.planned-ot-table .planned-grid-cell.planned-zero:focus,
+.planned-ot-table input.planned-grid-cell.planned-zero:focus{
+  background:#5b9bd5 !important;
+  color:#ff0000 !important;
+  border:1px solid #4472a8 !important;
+  box-shadow:none !important;
+  outline:none !important;
+}
+
+/* =========================================================
+   XÓA TOÀN BỘ KIỂU HIỂN THỊ ĐẶC BIỆT CỦA SỐ 0
+   0 trở về trạng thái ô mặc định màu trắng.
+   ========================================================= */
+.ot-table .ot-cell.val-0,
+.ot-table input.ot-cell.val-0,
+.ot-table .ot-cell.filtered-match.val-0,
+.ot-table input.ot-cell.filtered-match.val-0,
+.planned-ot-table .planned-grid-cell.val-0,
+.planned-ot-table input.planned-grid-cell.val-0{
+  background:#fff !important;
+  color:#111827 !important;
+  border:1px solid #cbd5e1 !important;
+  box-shadow:none !important;
+  outline:none !important;
+  font-weight:700 !important;
+}
+
+/* Không dùng trạng thái màu riêng cho ô chứa 0 */
+.ot-table td:has(.ot-cell.val-0),
+.planned-ot-table td:has(.planned-grid-cell.val-0){
+  background:#fff !important;
+  border-color:#cbd5e1 !important;
+}
+
+/* =========================================================
+   BẢNG THEO DÕI TĂNG CA - BỐ CỤC THEO MẪU MỚI
+   ========================================================= */
+.ot-table-wrap{
+  width:100%;
+  overflow:auto;
+  border:0;
+  background:#fff;
+  max-height:72vh;
+}
+
+.ot-table{
+  border-collapse:separate;
+  border-spacing:0;
+  width:max-content;
+  min-width:100%;
+  background:#fff;
+  font-size:12px;
+}
+
+.ot-table th,
+.ot-table td{
+  border-right:1px solid #dbe3ee;
+  border-bottom:1px solid #dbe3ee;
+  padding:4px;
+  text-align:center;
+  background:#fff;
+  box-sizing:border-box;
+}
+
+.ot-table thead th{
+  height:42px;
+  min-width:46px;
+  background:#fff;
+  color:#172033;
+  font-weight:900;
+  line-height:1.05;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+
+.ot-table thead th.name-col{
+  min-width:205px;
+  width:205px;
+  text-align:left;
+  padding-left:12px;
+}
+
+.ot-table tbody td{
+  height:47px;
+  min-width:46px;
+}
+
+.ot-table .name-col{
+  min-width:205px;
+  width:205px;
+  text-align:left;
+  position:sticky;
+  left:0;
+  z-index:6;
+  background:#fff !important;
+  padding-left:12px;
+}
+
+.ot-table thead .name-col{
+  z-index:12;
+}
+
+.ot-table .name-col b{
+  display:block;
+  white-space:nowrap;
+  overflow:visible;
+  font-size:14px;
+  line-height:1.15;
+}
+
+.ot-table .name-col small{
+  display:block;
+  margin-top:3px;
+  color:#075985;
+  font-size:11px;
+}
+
+.ot-cell{
+  display:block;
+  width:38px;
+  min-width:38px;
+  height:30px;
+  margin:auto;
+  padding:0;
+  border:1px solid #cbd5e1 !important;
+  border-radius:7px;
+  background:#fff !important;
+  color:#111827;
+  font-weight:900;
+  font-size:14px;
+  line-height:30px;
+  text-align:center;
+  outline:none;
+  box-shadow:none !important;
+}
+
+.ot-cell:focus,
+.ot-cell:focus-visible{
+  border-color:#cbd5e1 !important;
+  outline:none !important;
+  box-shadow:none !important;
+}
+
+/* Chủ nhật: cả cột ngoài hồng nhạt, ô nhập bên trong vẫn là ô vuông */
+.ot-table th.sunday-col,
+.ot-table td.sunday-col{
+  background:#fff1f2 !important;
+}
+
+.ot-table th.sunday-col{
+  color:#dc2626;
+}
+
+.ot-table td.sunday-col .ot-cell{
+  background:#fff !important;
+  border-color:#cbd5e1 !important;
+}
+
+/* Ngày nghỉ được chọn: cột nền hồng nhạt, ô nhập trắng */
+.ot-table th.selected-rest-day,
+.ot-table td.selected-rest-day{
+  background:#fff1f2 !important;
+}
+
+/* Các trạng thái giống mẫu */
+.ot-cell.val-N{
+  background:#ef4444 !important;
+  border-color:#dc2626 !important;
+  color:#fff !important;
+}
+
+.ot-cell.val-S,
+.ot-cell.val-S05,
+.ot-cell.val-S15,
+.ot-cell.val-S25,
+.ot-cell.val-S35,
+.ot-cell.val-S4,
+.ot-cell.val-S45,
+.ot-cell.val-S5{
+  background:#fff200 !important;
+  border-color:#facc15 !important;
+  color:#111827 !important;
+}
+
+.ot-cell.val-C{
+  background:#fdba74 !important;
+  border-color:#fb923c !important;
+  color:#111827 !important;
+}
+
+/* Số 0 giữ giao diện ô mặc định */
+.ot-cell.val-0{
+  background:#fff !important;
+  border-color:#cbd5e1 !important;
+  color:#111827 !important;
+}
+
+/* Số tăng ca bình thường */
+.ot-cell:not(.val-N):not(.val-S):not(.val-S05):not(.val-S15):not(.val-S25):not(.val-S35):not(.val-S4):not(.val-S45):not(.val-S5):not(.val-C):not(.val-0){
+  background:#fff !important;
+  color:#111827;
+}
+
+/* Tổng */
+.ot-total-cell{
+  min-width:62px !important;
+  width:62px;
+  background:#fff !important;
+  font-size:14px;
+  color:#111827;
+  position:sticky;
+  right:0;
+  z-index:5;
+}
+
+.ot-table thead th:last-child{
+  position:sticky;
+  right:0;
+  z-index:11;
+  background:#fff !important;
+}
+
+@media(max-width:900px){
+  .ot-table thead th.name-col,
+  .ot-table .name-col{
+    min-width:180px;
+    width:180px;
+  }
+}
