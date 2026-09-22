@@ -57,16 +57,14 @@ function setCloudStatus(ok,msg){
     const top=document.querySelector(".top-actions");
     if(top) top.prepend(el);
   }
-  el.textContent=ok ? "☁ Đã kết nối" : "☁ Chưa kết nối";
+  const shortMsg = msg ? String(msg).replace(/\\s+/g," ").slice(0,90) : "";
+  el.textContent = ok ? "☁ Đã kết nối" : ("☁ Lỗi kết nối" + (shortMsg ? ": " + shortMsg : ""));
   el.style.background=ok ? "#dcfce7" : "#fee2e2";
   el.style.color=ok ? "#166534" : "#b91c1c";
-  el.style.cursor = (!ok && msg) ? "pointer" : "default";
+  el.style.cursor = "default";
   el.title = msg || "";
   el.dataset.error = msg || "";
-  el.setAttribute("aria-label", msg || (ok ? "Đã kết nối Supabase" : "Chưa kết nối Supabase"));
-  el.onclick = (!ok && msg) ? function(){
-    alert("Chi tiết lỗi kết nối Supabase:\n\n" + msg + "\n\nNếu lỗi là HTTP 401/403, hãy kiểm tra Publishable Key và quyền Data API/RLS. Nếu lỗi là Failed to fetch, hãy kiểm tra mạng hoặc cấu hình URL.");
-  } : null;
+  el.setAttribute("aria-label", msg || (ok ? "Đã kết nối Supabase" : "Lỗi kết nối Supabase"));
 }
 
 function initCloud(){
